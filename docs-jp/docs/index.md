@@ -1,4 +1,4 @@
-# Azure AI Foundry でコードファーストエージェントを構築する
+# Azure AI Foundry でコードファーストに Agent を構築する
 
 ## 75分間のインタラクティブワークショップ
 

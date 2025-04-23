@@ -1,3 +1,11 @@
+## 🚧🚧 注意 🚧🚧
+
+
+**こちらはアメリカのシアトルで開催の Microsoft Build 2025に参加している方向けのページです。**
+
+通常のワークショップに参加している方は **Self-Guided Learners** のコンテンツをご利用ください。
+
+
 ## Microsoft Build Attendees
 
 The instructions on this page assume you are attending [Microsoft Build 2025](https://build.microsoft.com/){:target="_blank"} and have access to a pre-configured lab environment. This environment provides an Azure subscription with all the tools and resources needed to complete the workshop.

@@ -10,7 +10,7 @@
 
     * **生成 AI モデル**: このアプリを支える基盤となる LLM は、[Azure OpenAI gpt-4o](https://learn.microsoft.com/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#gpt-4o-and-gpt-4-turbo){:target="_blank"} LLM です。
 
-    * **Vector Store*: Agent のクエリをサポートするために、製品情報を PDF ファイルとして提供します。エージェントは、[Azure AI Agent Service ファイル検索ツール](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview){:target="_blank"} の「基本エージェント設定」を使用して、ベクトル検索でドキュメントの関連部分を見つけ、それらをコンテキストとしてエージェントに提供します。
+    * **ベクターストア*: Agent のクエリをサポートするために、製品情報を PDF ファイルとして提供します。エージェントは、[Azure AI Agent Service ファイル検索ツール](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview){:target="_blank"} の「Basic エージェント設定」を使用して、ベクトル検索でドキュメントの関連部分を見つけ、それらをコンテキストとしてエージェントに提供します。
 
     * **コントロールプレーン**: アプリとそのアーキテクチャーコンポーネントは、ブラウザ経由でアクセス可能な [Azure AI Foundry](https://ai.azure.com){:target="_blank"} ポータルを使用して管理および監視されます。
 
