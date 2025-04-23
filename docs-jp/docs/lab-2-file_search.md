@@ -1,147 +1,146 @@
-## Introduction
+## はじめに
 
-Grounding a conversation with documents is highly effective, especially for retrieving product details that may not be available in an operational database. The Azure AI Agent Service includes a [File Search tool](https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/tools/file-search){:target="_blank"}, which enables agents to retrieve information directly from uploaded files, such as user-supplied documents or product data, enabling a [RAG-style](https://learn.microsoft.com/azure/ai-studio/concepts/retrieval-augmented-generation){:target="_blank"} search experience.
+ドキュメントで会話をグラウンディングすることは非常に効果的であり、特に運用データベースでは利用できない可能性のある製品詳細を取得する場合に有効です。Azure AI Agent Service には [ファイル検索ツール](https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/tools/file-search){:target="_blank"} が含まれており、これにより Agent は、ユーザーが提供したドキュメントや製品データなどのアップロードされたファイルから直接情報を取得でき、[RAG スタイル](https://learn.microsoft.com/azure/ai-studio/concepts/retrieval-augmented-generation){:target="_blank"} の検索エクスペリエンスを実現します。
 
-In this lab, you'll learn how to enable the document search and upload the Tents Data Sheet to a vector store for the agent. Once activated, the tool allows the agent to search the file and deliver relevant responses. Documents can be uploaded to the agent for all users or linked to a specific user thread, or linked to the Code Interpreter.
+このラボでは、ドキュメント検索を有効にし、Agent 用にテントのデータシートをベクトルストアにアップロードする方法を学びます。有効化されると、このツールにより Agent はファイルを検索し、関連性の高い応答を提供できるようになります。ドキュメントは、すべてのユーザー向けに Agent にアップロードしたり、特定のユーザースレッドにリンクしたり、コードインタープリターにリンクしたりできます。
 
-When the app starts, a vector store is created, the Contoso tents datasheet PDF file is uploaded to the vector store, and it is made available to the agent.
+アプリが起動すると、ベクトルストアが作成され、Contoso のテントデータシート PDF ファイルがベクトルストアにアップロードされ、Agent で利用可能になります。
 
-Normally, you wouldn’t create a new vector store and upload documents each time the app starts. Instead, you’d create the vector store once, upload potentially thousands of documents, and connect the store to the agent.
+通常、アプリが起動するたびに新しいベクトルストアを作成してドキュメントをアップロードすることはありません。代わりに、ベクトルストアを一度作成し、潜在的に数千のドキュメントをアップロードし、そのストアを Agent に接続します。
 
-A [vector store](https://en.wikipedia.org/wiki/Vector_database){:target="_blank"} is a database optimized for storing and searching vectors (numeric representations of text data). The File Search tool uses the vector store for [semantic search](https://en.wikipedia.org/wiki/Semantic_search){:target="_blank"} to search for relevant information in the uploaded document.
+[ベクトルストア](https://en.wikipedia.org/wiki/Vector_database){:target="_blank"} は、ベクトル（テキストデータの数値表現）の保存と検索に最適化されたデータベースです。ファイル検索ツールは、アップロードされたドキュメント内の関連情報を検索するために、ベクトルストアを [セマンティック検索](https://en.wikipedia.org/wiki/Semantic_search){:target="_blank"} に使用します。
 
-## Lab Exercise
+## ラボ演習
 
-1. Open the **shared/datasheet/contoso-tents-datasheet.pdf** file from VS Code. The PDF file includes detailed product descriptions for the tents sold by Contoso.
+1.  VS Code から **shared/datasheet/contoso-tents-datasheet.pdf** ファイルを開きます。この PDF ファイルには、Contoso が販売するテントの詳細な製品説明が含まれています。
 
-2. **Review** the file’s contents to understand the information it contains, as this will be used to ground the agent’s responses.
+2.  Agent の応答をグラウンディングするために使用されるため、ファイルの内容を**確認**して、含まれる情報を理解します。
 
 === "Python"
 
-      1. Open the file `main.py`.
+      1. `main.py` ファイルを開きます。
 
-      2. **Uncomment** the following lines by removing the **"# "** characters
+      2. **"# "** 文字を削除して、次の行の**コメントを解除**します
 
-        ```python
-        # INSTRUCTIONS_FILE = "instructions/file_search.txt"
+          ```python
+          # INSTRUCTIONS_FILE = "instructions/file_search.txt"
 
-        # vector_store = await utilities.create_vector_store(
-        #     project_client,
-        #     files=[TENTS_DATA_SHEET_FILE],
-        #     vector_name_name="Contoso Product Information Vector Store",
-        # )
-        # file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])
-        # toolset.add(file_search_tool)
-        ```
+          # vector_store = await utilities.create_vector_store(
+          #     project_client,
+          #     files=[TENTS_DATA_SHEET_FILE],
+          #     vector_store_name="Contoso Product Information Vector Store",
+          # )
+          # file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])
+          # toolset.add(file_search_tool)
+          ```
 
-        !!! warning
-            The lines to be uncommented are not adjacent. When removing the # character, ensure you also delete the space that follows it.
+          !!! warning
+              コメント解除する行は隣接していません。# 文字を削除する際は、その後のスペースも削除するようにしてください。
 
-      3. Review the code in the `main.py` file.
+      3. `main.py` ファイルのコードを確認します。
 
-        After uncommenting, your code should look like this:
+          コメント解除後、コードは次のようになります：
 
-        ```python
-        INSTRUCTIONS_FILE = "instructions/function_calling.txt"
-        INSTRUCTIONS_FILE = "instructions/file_search.txt"
-        # INSTRUCTIONS_FILE = "instructions/code_interpreter.txt"
-        # INSTRUCTIONS_FILE = "instructions/code_interpreter_multilingual.txt"
-        # INSTRUCTIONS_FILE = "instructions/bing_grounding.txt"
+          ```python
+          INSTRUCTIONS_FILE = "instructions/function_calling.txt"
+          INSTRUCTIONS_FILE = "instructions/file_search.txt"
+          # INSTRUCTIONS_FILE = "instructions/code_interpreter.txt"
+          # INSTRUCTIONS_FILE = "instructions/code_interpreter_multilingual.txt"
+          # INSTRUCTIONS_FILE = "instructions/bing_grounding.txt"
 
 
-        async def add_agent_tools() -> None:
-            """Add tools for the agent."""
-            font_file_info = None
+          async def add_agent_tools() -> None:
+              """Add tools for the agent."""
+              font_file_info = None
 
-            # Add the functions tool
-            toolset.add(functions)
+              # 関数ツールを追加
+              toolset.add(functions)
 
-            # Add the tents data sheet to a new vector data store
-            vector_store = await utilities.create_vector_store(
-                project_client,
-                files=[TENTS_DATA_SHEET_FILE],
-                vector_store_name="Contoso Product Information Vector Store",
-            )
-            file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])
-            toolset.add(file_search_tool)
+              # テントのデータシートを新しいベクトルデータストアに追加
+              vector_store = await utilities.create_vector_store(
+                  project_client,
+                  files=[TENTS_DATA_SHEET_FILE],
+                  vector_store_name="Contoso Product Information Vector Store",
+              )
+              file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])
+              toolset.add(file_search_tool)
 
-            # Add the code interpreter tool
-            # code_interpreter = CodeInterpreterTool()
-            # toolset.add(code_interpreter)
+              # コードインタープリターツールを追加
+              # code_interpreter = CodeInterpreterTool()
+              # toolset.add(code_interpreter)
 
-            # Add multilingual support to the code interpreter
-            # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
-            # code_interpreter.add_file(file_id=font_file_info.id)
+              # コードインタープリターに多言語サポートを追加
+              # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
+              # code_interpreter.add_file(file_id=font_file_info.id)
 
-            # Add the Bing grounding tool
-            # bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
-            # bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
-            # toolset.add(bing_grounding)
+              # Bing グラウンディングツールを追加
+              # bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
+              # bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
+              # toolset.add(bing_grounding)
 
-            return font_file_info
-        ```
+              return font_file_info
+          ```
 
 === "C#"
 
-      1. Open the `Program.cs` file.
-      2. **Update** the creation of the lab to use the `Lab3` class.
+    1. `Program.cs` ファイルを開きます。
+    2. ラボの作成を `Lab3` クラスを使用するように**更新**します。
 
-          ```csharp
-          await using Lab lab = new Lab2(projectClient, apiDeploymentName);
-          ```
+        ```csharp
+        await using Lab lab = new Lab2(projectClient, apiDeploymentName);
+        ```
 
-      3. Review the `Lab3.cs` class to see how `InitialiseLabAsync` is used to add the PDF to a vector store and add the File Search tool to the agent, and `InitialiseToolResources` is used to add the File Search tool to the agent. These methods would be good places to add breakpoints to observe the process.
+    3. `Lab3.cs` クラスを確認し、`InitialiseLabAsync` が PDF をベクトルストアに追加しファイル検索ツールを Agent に追加するためにどのように使用され、`InitialiseToolResources` がファイル検索ツールを Agent に追加するためにどのように使用されるかを確認します。これらのメソッドは、プロセスを観察するためにブレークポイントを追加するのに適した場所です。
 
-## Review the Instructions
+## 関数の確認
 
-1. Review the **create_vector_store** function in the **utilities.py** file. The create_vector_store function uploads the Tents Data Sheet and saves it in a vector store.
+1.  **utilities.py** ファイル内の **create_vector_store** 関数を確認します。`create_vector_store` 関数は、テントのデータシートをアップロードし、ベクトルストアに保存します。
 
-    If you are comfortable using the VS Code debugger, then set a [breakpoint](https://code.visualstudio.com/Docs/editor/debugging){:target="_blank"} in the **create_vector_store** function to observe how the vector store is created.
+    VS Code デバッガーの使用に慣れている場合は、**create_vector_store** 関数に[ブレークポイント](https://code.visualstudio.com/Docs/editor/debugging){:target="_blank"}を設定して、ベクトルストアがどのように作成されるかを観察します。
 
-## Run the Agent App
+## Agent App の実行
 
-1. Press <kbd>F5</kbd> to run the app.
-1. In the terminal, the app starts, and the agent app will prompt you to **Enter your query**.
+1.  \<kbd\>F5\</kbd\> を押してアプリを実行します。
+2.  ターミナルにアプリの起動が表示され、Agent App から**クエリを入力してください (Enter your query)** というプロンプトが表示されます。
 
-### Start a Conversation with the Agent
+### Agent との会話を開始する
 
-The following conversation uses data from both the Contoso sales database and the uploaded Tents Data Sheet, so the results will vary depending on the query.
+以下の会話では、Contoso 売上データベースとアップロードされたテントデータシートの両方のデータを使用するため、結果はクエリによって異なります。
 
-1. **What brands of hiking shoes do we sell?**
-
-    !!! info
-        We haven't provided the agent with any files containing information about hiking shoes.
-
-        In the first lab you may have noticed that the transaction history from the underlying database did not include any product brands or descriptions, either.
-
-1. **What brands of tents do we sell?**
-
-    The agent responds with a list of distinct tent brands mentioned in the Tents Data Sheet.
+1.  **どのブランドのハイキングシューズを販売していますか？** (または「What brands of hiking shoes do we sell?」など)
 
     !!! info
-        The agent can now reference the provided data sheet to access details such as brand, description, product type, and category, and relate this data back to the Contoso sales database.
+        ハイキングシューズに関する情報を含むファイルを Agent に提供していません。
 
-1. **What product type and categories are these brands associated with?**
+        最初のラボで、基盤となるデータベースの取引履歴にも製品ブランドや説明が含まれていなかったことにお気づきかもしれません。
 
-    The agent provides a list of product types and categories associated with the tent brands.
+2.  **どのブランドのテントを販売していますか？** (または「What brands of tents do we sell?」など)
 
-1. **What were the sales of tents in 2024 by product type? Include the brands associated with each.**
-
-    !!! info
-        It's possible the agent might get this wrong, and suggest incorrectly that AlpineGear has a Family Camping tent. To address this, you could provide further context in the instructions or the datasheet, or provide context to the agent directly as in next prompt.
-
-1. **What were the sales of AlpineGear in 2024 by region?**
-
-    The agent responds with sales data from the Contoso sales database.
+    Agent は、テントデータシートに記載されている個別のテントブランドのリストで応答します。
 
     !!! info
-        The agent interprets this as a request to find all sales of tents in the "CAMPING & HIKING' category, since it
-        now has access to information that Alpine Gear is a brand of backpacking tent.
+        Agent は提供されたデータシートを参照して、ブランド、説明、製品タイプ、カテゴリなどの詳細にアクセスし、このデータを Contoso 売上データベースに関連付けることができるようになりました。
 
-1. **Contoso does not sell Family Camping tents from AlpineGear. Try again.**
+3.  **これらのブランドに関連付けられている製品タイプとカテゴリは何ですか？** (または「What product type and categories are these brands associated with?」など)
 
-    That's better!
+    Agent は、テントブランドに関連付けられている製品タイプとカテゴリのリストを提供します。
 
-## Stop the Agent App
+4.  **2024年のテントの売上を製品タイプ別に教えてください。各ブランドも含めて。** (または「What were the sales of tents in 2024 by product type? Include the brands associated with each.」など)
 
-When you're done, type **exit** to clean up the agent resources and stop the app.
+    !!! info
+        Agent がこれを間違え、AlpineGear にファミリーキャンプ用テントがあると誤って示唆する可能性があります。これに対処するには、指示やデータシートでさらにコンテキストを提供するか、次のプロンプトのように Agent に直接コンテキストを提供します。
+
+5.  **What were the sales of AlpineGear in 2024 by region?** (または「2024年の AlpineGear の地域別売上は？」など)
+
+    Agent は Contoso 売上データベースからの売上データで応答します。
+
+    !!! info
+        Agent は、Alpine Gear がバックパッキングテントのブランドであるという情報にアクセスできるようになったため、これを「CAMPING & HIKING」カテゴリのすべてのテントの売上を検索するリクエストとして解釈します。
+
+6.  **Contoso は AlpineGear のファミリーキャンプ用テントを販売していません。もう一度試してください。** (または「Contoso does not sell Family Camping tents from AlpineGear. Try again.」など)
+
+    よくなりました！
+
+## Agent Appの停止
+
+完了したら、**exit** と入力して Agent のリソースをクリーンアップし、アプリを停止します。
