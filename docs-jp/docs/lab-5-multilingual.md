@@ -1,6 +1,6 @@
 ## はじめに
 
-「ドキュメントによるグラウンディング」ラボでは、会話にコンテキストを提供するために PDF ファイルをアップロードしました。今回は、多言語の視覚化のためのフォントを含む ZIP ファイルをアップロードしてコードインタープリターを強化します。これは、[ファイルのアップロード](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter){:target="_blank"} がその機能を拡張する方法の一例にすぎません。
+「Lab 2🚀Grounding with Documents」では、会話にドキュメントのコンテキストを提供するために PDF ファイルをアップロードしました。今回は、多言語の視覚化のためのフォントを含む ZIP ファイルをアップロードしてコードインタープリターを強化します。これは、[ファイルのアップロード](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter){:target="_blank"} がその機能を拡張する方法の一例にすぎません。
 
 !!! note
     コードインタープリターには、デフォルトでラテン文字ベースのフォントセットが含まれています。コードインタープリターはサンドボックス化された Python 環境で実行されるため、インターネットから直接フォントをダウンロードすることはできません。

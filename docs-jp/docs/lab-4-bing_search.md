@@ -1,6 +1,6 @@
 ## はじめに
 
-Bing による会話のグラウンディングは、Azure AI Agent Service によって提供されるいくつかのツールの 1 つです。Grounding with Bing を使用すると、アプリは会話に関連する情報を検索できます。例えば、競合製品の情報を検索したい場合などです。
+Bing でウェブ検索の結果を会話に含めることは、Azure AI Agent Service によって提供されるいくつかのツールの 1 つです。Grounding with Bing を使用すると、アプリは会話に関連する情報をウェブ検索できます。例えば、競合製品の情報を検索したい場合などです。
 
 ###Grounding with Bing へのアクセス
 
