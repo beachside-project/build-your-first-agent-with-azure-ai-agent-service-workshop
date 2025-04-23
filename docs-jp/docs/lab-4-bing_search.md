@@ -1,79 +1,79 @@
-## Introduction
+## はじめに
 
-Grounding conversations with Bing is one of several tools provided by the Azure AI Agent Service. Grounding with Bing allows your app to search for information relevant to the conversation. For example, you might want to search for competitive product information.
+Bing による会話のグラウンディングは、Azure AI Agent Service によって提供されるいくつかのツールの 1 つです。Grounding with Bing を使用すると、アプリは会話に関連する情報を検索できます。例えば、競合製品の情報を検索したい場合などです。
 
-### Access to Grounding with Bing Search
+###Grounding with Bing へのアクセス
 
-This lab requires the Grounding with Bing Search service, which may not be available in your Azure subscription. To check if you have access, follow the lab instructions to create the resource, if you don’t have access, an error message will appear. Even if you’re unable to use the service, be sure to read through the lab to understand how Grounding with Bing Search works.
+このラボでは Grounding with Bing のサービスが必要ですが、お使いの Azure サブスクリプションでは利用できない場合があります。アクセス権があるかどうかを確認するには、ラボの指示に従ってリソースを作成します。アクセス権がない場合は、エラーメッセージが表示されます。サービスを利用できない場合でも、Grounding with Bing がどのように機能するかを理解するために、必ずラボを読んでください。
 
-## Lab Exercise
+## ラボ演習
 
-In this lab, you'll enable Bing Grounding to provide competitive sales analysis of Contoso products and categories.
+このラボでは、Contoso の製品とカテゴリの競合売上分析を提供するために Grounding with Bing を有効にします。
 
-## Create a with Grounding with Bing Search resource
+## Grounding with Bing Search リソースの作成
 
-You'll need to create a **Grounding with Bing Search Service** resource in the Azure portal and connect it to the Azure AI Foundry portal.
+Azure ポータルで **Grounding with Bing Search** リソースを作成し、それを Azure AI Foundry ポータルに接続する必要があります。
 
-Follow these steps to create a Grounding with Bing Search Resource:
+**Grounding with Bing Search** リソースを作成するには、次の手順に従います：
 
-1. [Click to create a Grounding with Bing Search Resource](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/Microsoft.BingGroundingSearch){:target="_blank"}.
+1.  [クリックして Grounding with Bing Search リソースを作成します](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/Microsoft.BingGroundingSearch){:target="_blank"}。
 
     !!! Warning
-        You may need to sign in to your Azure account and or clear the welcome screen to access the Azure portal.
+        Azure ポータルにアクセスするには、Azure アカウントにサインインするか、ようこそ画面をクリアする必要がある場合があります。
 
-1. Select **Create**.
-1. Select the **rg-agent-workshop** resource group from the drop-down list.
-1. Name the resource as follows:
+2.  **作成**を選択します。
+3.  ドロップダウンリストから **rg-agent-workshop** リソースグループを選択します。
+4.  次のようにリソースに名前を付けます：
 
     ```text
     groundingwithbingsearch
     ```
 
-1. Select the **Grounding with Bing Search** pricing tier.
-1. Confirm **I confirm I have read and understood the notice above**.
-1. Select **Review + create**.
-1. Select **Create**.
-1. Wait for deployment to complete, then click **Go to resource**.
-1. Select **Overview** from the side-bar menu.
-1. Select the **Go to Azure AI Foundry Portal** button.
+5.  **Grounding with Bing Search** 価格レベルを選択します。
+6.  **上記の通知を読み、理解したことを確認します (I confirm I have read and understood the notice above)** を確認します。
+7.  **確認と作成**を選択します。
+8.  **作成**を選択します。
+9.  デプロイが完了するのを待ってから、**リソースに移動**をクリックします。
+10. サイドバーメニューから**概要 (Overview)** を選択します。
+11. **Azure AI Foundry ポータルに移動 (Go to Azure AI Foundry Portal)** ボタンを選択します。
 <!-- 1. Select **Sign in** and enter your Azure account credentials. -->
 
-## Create a Bing Search Connection in AI Foundry
+## AI Foundry で Bing Search の接続を作成する
 
-Next, we will create a Bing Search connection in the Azure AI Foundry portal. This connection enables the agent app to access the Bing Search service using the agent **Grounding-with-Bing-Search**.
+次に、Azure AI Foundry ポータルで Bing Search の接続を作成します。この接続により、Agent app は Agent の **Grounding with Bing Search** を使用して Bing Search サービスにアクセスできるようになります。
 
-To create a Bing Search connection in the Azure AI Foundry portal, follow these steps:
+Azure AI Foundry ポータルで Bing Search 接続を作成するには、次の手順に従います：
 
-1. Verify that your project **Agent-Service-Workshop** is selected.
-1. From the sidebar menu, click the **Management Center** button. The button is pinned at the **bottom** of the sidebar.
-1. From the side-bar menu, select **Connected resources**.
-1. Click **+ New connection**.
-1. Scroll to the Knowledge section and select **Grounding with Bing Search**.
-1. Click the **Add connection** button to the right of your `groundingwithbingsearch` resource.
-1. Click **Close**
+1.  プロジェクト **Agent-Service-Workshop** が選択されていることを確認します。
+2.  サイドバーメニューから **Management Center** ボタンをクリックします。ボタンはサイドバーの**下部**にピン留めされています。
+3.  サイドバーメニューから **Connected resources** を選択します。
+4.  **+ New connection** をクリックします。
+5.  Knowledge セクションまでスクロールし、**Grounding with Bing Search** を選択します。
+6.  `groundingwithbingsearch` リソースの右側にある **Add connection** ボタンをクリックします。
+7.  **Close** をクリックします。
 
-For more information, visit the [Grounding with Bing Search](https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/tools/bing-grounding){:target="_blank"} documentation.
+詳細については、[Grounding with Bing Search](https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/tools/bing-grounding){:target="_blank"} のドキュメントをご覧ください。
 
-### Enable Grounding with Bing Search in the Agent App
+### Agent app で Grounding with Bing Search を有効にする
 
-1. Open the file `main.py`.
+1.  `main.py` ファイルを開きます。
 
-1. **Uncomment** the following lines by removing the **"# "** characters
+2.  **"# "** 文字を削除して、次の行の**コメントを解除**します
 
     ```python
     # INSTRUCTIONS_FILE = "instructions/bing_grounding.txt"
 
-    # bing_connection = project_client.connections.get(connection_name=BING_CONNECTION_NAME)
-    # bing_grounding = BingGroundingTool(bing_connection)
+    # bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
+    # bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
     # toolset.add(bing_grounding)
     ```
 
     !!! warning
-        The lines to be uncommented are not adjacent. When removing the # character, ensure you also delete the space that follows it.
+        コメント解除する行は隣接していません。# 文字を削除する際は、その後のスペースも削除するようにしてください。
 
-1. Review the code in the `main.py` file.
+3.  `main.py` ファイルのコードを確認します。
 
-    After uncommenting, your code should look like this:
+    コメント解除後、コードは次のようになります：
 
     ```python
     INSTRUCTIONS_FILE = "instructions/function_calling.txt"
@@ -88,14 +88,14 @@ For more information, visit the [Grounding with Bing Search](https://learn.micro
         """Add tools for the agent."""
         font_file_info = None
 
-        # Add the functions tool
+        # 関数ツールを追加
         toolset.add(functions)
 
-        # Add the code interpreter tool
+        # コードインタープリターツールを追加
         code_interpreter = CodeInterpreterTool()
         toolset.add(code_interpreter)
 
-        # Add the tents data sheet to a new vector data store
+        # テントのデータシートを新しいベクトルデータストアに追加
         vector_store = await utilities.create_vector_store(
             project_client,
             files=[TENTS_DATA_SHEET_FILE],
@@ -104,11 +104,11 @@ For more information, visit the [Grounding with Bing Search](https://learn.micro
         file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])
         toolset.add(file_search_tool)
 
-        # Add multilingual support to the code interpreter
+        # コードインタープリターに多言語サポートを追加
         # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
         # code_interpreter.add_file(file_id=font_file_info.id)
 
-        # Add the Bing grounding tool
+        # Bing グラウンディングツールを追加
         bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
         bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
         toolset.add(bing_grounding)
@@ -116,77 +116,76 @@ For more information, visit the [Grounding with Bing Search](https://learn.micro
         return font_file_info
     ```
 
-### Review the Instructions
+### 指示の確認
 
-1. Open the **shared/instructions/bing_grounding.txt** file. This file replaces the instructions used in the previous lab.
-2. The **Tools** section now includes a “Competitive Insights for Products and Categories” capability, enabling the agent to:
+1.  **shared/instructions/bing_grounding.txt** ファイルを開きます。このファイルは、前のラボで使用された指示を置き換えます。
 
-    - Use Bing Search to gather competitor product names, company names, and prices.
-    - Restrict responses to topics related to outdoor camping and sports gear.
-    - Ensure search results are concise and directly relevant to the query.
+2.  **ツール**セクションには、「製品とカテゴリに関する競合インサイト (Competitive Insights for Products and Categories)」機能が含まれるようになり、Agentは次のことができるようになります：
 
-### Run the Agent App
+      * Bing Search を使用して、競合他社の製品名、会社名、価格を収集します。
+      * 応答を、アウトドアキャンプおよびスポーツ用品に関連するトピックに限定します。
+      * 検索結果が簡潔で、クエリに直接関連していることを確認します。
 
-First, launch the app from the terminal as before:
+### Agent app の実行
 
-1. Press <kbd>F5</kbd> to run the app.
+まず、以前と同様にターミナルからアプリを起動します：
 
-### Start a Conversation with the Agent
+1.  \<kbd\>F5\</kbd\> を押してアプリを実行します。
 
-The agent combines data from the Contoso sales database, the Tents Data Sheet, and Bing Search to provide comprehensive responses, so the results will vary depending on the query.
+### Agent との会話を開始する
 
-1. **What beginner tents do we sell?**
+Agent は Contoso 売上データベース、テントデータシート、および Bing Search からのデータを組み合わせて包括的な応答を提供するため、結果はクエリによって異なります。
 
-    !!! info
-        This information mainly comes from the file we provided in the vector information store.
-
-2. **What beginner tents do our competitors sell? Include prices.**
+1.  **どの初心者向けテントを販売していますか？** (または「What beginner tents do we sell?」など)
 
     !!! info
-        This information comes from the internet, and includes real-world product names and prices.
+        この情報は主に、ベクトル情報ストアで提供したファイルから取得されます。
 
-3. **Show as a bar chart**
-
-    !!! info
-        AI Agent Service is again using Code Interpreter to create the chart, but this time with
-        real-world data sourced in the previous query. As before, look in `shared/files` to view the chart.
-
-4. **Show the tents we sell by region that are a similar price to our competitors beginner tents.**
+2.  **競合他社はどの初心者向けテントを販売していますか？価格も含めて。** (または「What beginner tents do our competitors sell? Include prices.」など)
 
     !!! info
-        This query relies on the reasoning capabilities of the underlying large language model, along with the data returned by function calling.
+        この情報はインターネットから取得され、実世界の製品名と価格が含まれています。
 
-5. **Download the data as a human-readable JSON file**
+3.  **棒グラフで表示して** (または「Show as a bar chart」など)
 
     !!! info
-        This query again relies on Code Interpreter to create the file from the context in the
-        previous queries.
+        AI Agent Service は再びコードインタープリターを使用してグラフを作成しますが、今回は前のクエリで取得した実世界のデータを使用します。以前と同様に、グラフを表示するには `shared/files` を確認してください。
 
-### Stop the Agent App
+4.  **競合他社の初心者向けテントと同様の価格帯で、私たちが地域別に販売しているテントを表示して** (または「Show the tents we sell by region that are a similar price to our competitors beginner tents.」など)
 
-1. Type **save** to save the agent app state. This stops the agent app without deleting its state, allowing you to explore the agent in the Azure AI Foundry’s Agents playground.
-2. Press <kbd>Shift</kbd>+<kbd>F5</kbd> to **stop debugging** the agent app.
-3. **Copy** the Agent ID from the terminal output. The Agent ID is required to explore the agent in the Azure AI Foundry portal. The Agent ID will look similar to this example:
+    !!! info
+        このクエリは、基盤となる大規模言語モデルの推論能力と、関数呼び出しによって返されたデータに依存しています。
+
+5.  **データを人間が読める JSON ファイルとしてダウンロードして** (または「Download the data as a human-readable JSON file」など)
+
+    !!! info
+        このクエリは再び、前のクエリのコンテキストからファイルを作成するためにコードインタープリターに依存しています。
+
+### Agentアプリの停止
+
+1.  **save** と入力して Agent アプリの状態を保存します。これにより、状態を削除せずに Agent app が停止し、Azure AI Foundry の Agents プレイグラウンドで Agent を探索できるようになります。
+
+2.  \<kbd\>Shift\</kbd\>+\<kbd\>F5\</kbd\> を押して Agent app の**デバッグを停止**します。
+
+3.  ターミナル出力から Agent ID を**コピー**します。Agent ID は、Azure AI Foundry ポータルで Agent を探索するために必要です。Agent ID は次のような形式になります：
 
     ```text
     Agent ID: asst_pskNeFYuoCPogDnmfaqIUwoU
     ```
 
-## Explore the Agent in Azure AI Foundry
+## Azure AI Foundry で Agent を探索する
 
-The Azure AI Foundry includes a playground that lets you interact with the agent app and test how it responds to various queries. Keep in mind that this playground is not a full chatbot experience—it’s a testing tool. Also, you won’t have real-time access to the Contoso sales database, as that resource is available only locally.
+Azure AI Foundry には、Agentアプリと対話し、さまざまなクエリに対する応答をテストできるプレイグラウンドが含まれています。このプレイグラウンドは完全なチャットボット体験ではなく、テストツールであることに注意してください。また、Contoso 売上データベースリソースはローカルでのみ利用可能なため、リアルタイムアクセスはできません。
 
-1. From your browser, navigate to the [Azure AI Foundry portal](https://ai.azure.com/){:target="_blank"}.
-2. Select **Playgrounds** from the left-hand navigation.
-3. Select **Try the Agents playground**.
-4. Paste the **Agent ID** you copied earlier into the **Agent id** field.
+1.  ブラウザから [Azure AI Foundry ポータル](https://ai.azure.com/){:target="_blank"} に移動します。
+2.  左側のナビゲーションから **Playgrounds** を選択します。
+3.  **Try the Agents playground** を選択します。
+4.  先ほどコピーした**Agent ID** を **Agent id** フィールドに貼り付けます。
 
-### Review the Agent's Instructions
+### Agent の指示を確認する
 
-You'll recognize the instructions from the `instructions_bing_grounding.txt` file. These instructions are used to guide the agent in responding to queries.
+`instructions_bing_grounding.txt` ファイルからの指示であることがわかります。これらの指示は、クエリに応答する際にAgentをガイドするために使用されます。
 
-### Start a Conversation with the Agent in the Playground
+### プレイグラウンドでAgentとの会話を開始する
 
-Use the playground to test different queries and observe how the agent responds. You can reuse the same queries from the terminal or try new ones. Keep in mind that the agent pulls information from the Tents Data Sheet and Bing Search, but unlike the local app version, it does not have access to the Contoso sales database.
-
-![Azure AI Foundry Playground](media/agents-playground.png)
+プレイグラウンドを使用してさまざまなクエリをテストし、Agent がどのように応答するかを観察します。ターミナルと同じクエリを再利用したり、新しいクエリを試したりできます。Agent はテントデータシートと Bing Search から情報を取得しますが、ローカルアプリのバージョンとは異なり、Contoso 売上データベースにはアクセスできないことに注意してください。
