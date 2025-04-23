@@ -8,12 +8,12 @@ nav:
   # - Workshop Setup:
   #   - BUILD Attendees: introduction-event.md
   #   - Self-Guided Learners: introduction-self-guided.md
-  - Lab 1🚀Function Calling のパワー: lab-1-function_calling.md
-  - Lab 2🚀ドキュメントのグラウンディング: lab-2-file_search.md
-  - Lab 3🚀コードインタープリター入門: lab-3-code_interpreter.md
-  - Lab 4🚀Grounding with Bing Search: lab-4-bing_search.md
-  - Lab 5🚀多言語での視覚化: lab-5-multilingual.md
-  - Lab 6🚀最後に: finishing-up.md
+  - Lab 1🧪Function Calling のパワー: lab-1-function_calling.md
+  - Lab 2🧪ドキュメントのグラウンディング: lab-2-file_search.md
+  - Lab 3🧪コードインタープリター入門: lab-3-code_interpreter.md
+  - Lab 4🧪Grounding with Bing Search: lab-4-bing_search.md
+  - Lab 5🧪多言語での視覚化: lab-5-multilingual.md
+  - Lab 6🧪最後に: finishing-up.md
   - まとめ: summary.md
   - リソース情報: resources.md
   # - Deployment: deployment.md
