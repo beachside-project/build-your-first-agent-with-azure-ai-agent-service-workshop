@@ -4,7 +4,7 @@
 
 GitHub 上のワークショップリポジトリには、ワークショップに必要なすべてが含まれています。リポジトリには、サンプルアプリケーションのソースコード（src フォルダ）、MkDocs で構築されたドキュメント（docs）、ワークショップ用の Azure デプロイメントリソース（infra）が含まれています。
 
-* リポジトリ： [microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop](https://github.com/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop){:target="_blank"}
+* リポジトリ： [beachside-project/build-your-first-agent-with-azure-ai-agent-service-workshop](https://github.com/beachside-project/build-your-first-agent-with-azure-ai-agent-service-workshop/tree/dev-jp){:target="_blank"}
 
 ## Microsoft Learn リソース
 
@@ -21,4 +21,4 @@ GitHub 上のワークショップリポジトリには、ワークショップ�
 
 ## 謝辞
 
-このワークショップにご参加いただき、ありがとうございました！改善のための提案や、このワークショップの実行中に問題が発生した場合は、[GitHub Issues](https://github.com/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop/issues){:target="_blank"} を通じてお知らせください。
+このワークショップにご参加いただき、ありがとうございました！
