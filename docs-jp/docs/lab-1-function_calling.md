@@ -169,7 +169,7 @@ Function calling により、大規模言語モデルは外部システムと対
 
 ## Agent App の実行
 
-1.  \<kbd\>F5\</kbd\> を押してアプリを実行します。
+1.  <kbd>F5</kbd> を押してアプリを実行します。
 2.  ターミナルにアプリの起動が表示され、エージェントアプリから**クエリを入力してください (Enter your query)** というプロンプトが表示されます。
 
     ![Agent App](./media/run-the-agent.png){:width="600"}
@@ -243,7 +243,7 @@ Contoso の売上データに関する質問を始めてください。例：
 
 ## (オプション) アプリのデバッグ
 
-`sales_data.py` にある `async_fetch_sales_data_using_sqlite_query` 関数に[ブレークポイント](https://code.visualstudio.com/Docs/editor/debugging){:target="\_blank"}を設定して、LLM がどのようにデータを要求するかを観察します。
+`sales_data.py` にある `async_fetch_sales_data_using_sqlite_query` 関数に[ブレークポイント](https://code.visualstudio.com/Docs/editor/debugging){:target="_blank"}を設定して、LLM がどのようにデータを要求するかを観察します。
 
 !!! info "注意：デバッグ機能を使用するには、前の実行を終了します。次にブレークポイントを設定します。その後、サイドバーのデバッガーアイコンを使用してアプリケーションを実行します。これによりデバッグサイドバーが開き、スタックトレースを確認したり、実行をステップ実行したりできます。"
 

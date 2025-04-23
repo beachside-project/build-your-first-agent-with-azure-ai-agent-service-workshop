@@ -130,7 +130,7 @@ Azure AI Foundry ポータルで Bing Search 接続を作成するには、次�
 
 まず、以前と同様にターミナルからアプリを起動します：
 
-1.  \<kbd\>F5\</kbd\> を押してアプリを実行します。
+1.  <kbd>F5</kbd> を押してアプリを実行します。
 
 ### Agent との会話を開始する
 
@@ -165,7 +165,7 @@ Agent は Contoso 売上データベース、テントデータシート、お�
 
 1.  **save** と入力して Agent アプリの状態を保存します。これにより、状態を削除せずに Agent app が停止し、Azure AI Foundry の Agents プレイグラウンドで Agent を探索できるようになります。
 
-2.  \<kbd\>Shift\</kbd\>+\<kbd\>F5\</kbd\> を押して Agent app の**デバッグを停止**します。
+2.  <kbd>SHIFT</kbd>+<kbd>F5</kbd> を押して Agent app の**デバッグを停止**します。
 
 3.  ターミナル出力から Agent ID を**コピー**します。Agent ID は、Azure AI Foundry ポータルで Agent を探索するために必要です。Agent ID は次のような形式になります：
 

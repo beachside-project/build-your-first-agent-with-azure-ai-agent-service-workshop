@@ -90,7 +90,7 @@ Azure AI Agent Service のコードインタープリターを使用すると、
 
 ## Agent App の実行
 
-1.  \<kbd\>F5\</kbd\> を押してアプリを実行します。
+1.  <kbd>F5</kbd> を押してアプリを実行します。
 2.  ターミナルでアプリが起動し、Agent App から**クエリを入力してください (Enter your query)** というプロンプトが表示されます。
 
 ### Agent との会話を開始する
