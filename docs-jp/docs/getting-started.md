@@ -1,6 +1,6 @@
 # Getting Started
 
-ワークショップの種類を選択してください (基本的に "Self-Guided Learners" (自己学習向け) で実施します):
+ワークショップの種類を選択します:
 
 === "@Build Workshop"
 
