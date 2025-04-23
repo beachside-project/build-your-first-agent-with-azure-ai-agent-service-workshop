@@ -1,24 +1,24 @@
-# Resources
+# リソース
 
-## Workshop Repository and Documentation
+## ワークショップリポジトリとドキュメント
 
-The workshop repository on GitHub contains everything needed for the workshop. The repo includes the source code (src folder) for the sample application, the documentation (docs) built with MkDocs, and the Azure deployment resources (infra) for the workshop.
+GitHub 上のワークショップリポジトリには、ワークショップに必要なすべてが含まれています。リポジトリには、サンプルアプリケーションのソースコード（src フォルダ）、MkDocs で構築されたドキュメント（docs）、ワークショップ用の Azure デプロイメントリソース（infra）が含まれています。
 
-* Repository: [microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop](https://github.com/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop){:target="_blank"}
+* リポジトリ： [microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop](https://github.com/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop){:target="_blank"}
 
-## Microsoft Learn resources
+## Microsoft Learn リソース
 
-* Documentation: [Azure AI Agent Service](https://learn.microsoft.com/azure/ai-services/agents/){:target="_blank"}
-* Module: [Fundamentals of AI agents on Azure](https://learn.microsoft.com/training/modules/ai-agent-fundamentals/){:target="_blank"}
-* Documentation: [Tracing using Application Insights](https://learn.microsoft.com/azure/ai-services/agents/concepts/tracing){:target="_blank"}.
+* ドキュメント： [Azure AI Agent Service](https://learn.microsoft.com/azure/ai-services/agents/){:target="_blank"}
+* モジュール： [Azure 上の AI エージェントの基礎](https://learn.microsoft.com/training/modules/ai-agent-fundamentals/){:target="_blank"}
+* ドキュメント： [Application Insights を使用したトレース](https://learn.microsoft.com/azure/ai-services/agents/concepts/tracing){:target="_blank"}。
 
-## Contoso Sales Assistant sample
+## Contoso Sales Assistant サンプル
 
-This end-to-end demo web agent showcases the capabilities of the Azure AI Agent Service. It uses the Chainlit conversational UI framework to provide a web-based chat interface. The assistant is built to help users analyze sales data and answer questions related to it.
+このエンドツーエンドのデモ Web エージェントは、Azure AI Agent Service の機能を紹介します。これは、Web ベースのチャットインターフェースを提供するために Chainlit 対話型 UI フレームワークを使用しています。このアシスタントは、ユーザーが売上データを分析し、それに関連する質問に答えるのを支援するように構築されています。
 
-* [Contoso Sales Assistant App docs (Chainlit)](https://azure-samples.github.io/contoso-sales-azure-openai-assistants-api/){:target="_blank"}
-* [Contoso Sales Assistant App repo](https://github.com/Azure-Samples/contoso-sales-azure-openai-assistants-api){:target="_blank"}
+* [Contoso Sales Assistant アプリドキュメント (Chainlit)](https://azure-samples.github.io/contoso-sales-azure-openai-assistants-api/){:target="_blank"}
+* [Contoso Sales Assistant アプリリポジトリ](https://github.com/Azure-Samples/contoso-sales-azure-openai-assistants-api){:target="_blank"}
 
-## Thank you
+## 謝辞
 
-Thank you for participating in this workshop! If you have any suggestions for improvements or encountered any problems while running this workshop, please let us know via [GitHub Issues](https://github.com/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop/issues){:target="_blank"}.
+このワークショップにご参加いただき、ありがとうございました！改善のための提案や、このワークショップの実行中に問題が発生した場合は、[GitHub Issues](https://github.com/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop/issues){:target="_blank"} を通じてお知らせください。

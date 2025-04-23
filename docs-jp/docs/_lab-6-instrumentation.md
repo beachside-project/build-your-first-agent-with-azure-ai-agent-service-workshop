@@ -1,9 +1,9 @@
-## Introduction
+## はじめに
 
-Troubleshooting and debugging complex agents can be challenging due to the high number of steps, variability in execution sequences based on user input, lengthy inputs and outputs requiring detailed inspection, and nested processes where tools invoke other tools. Tracing addresses these challenges by providing a clear, sequential view of the inputs and outputs at each stage of an agent’s execution, making it easier to identify and resolve issues.
+複雑な Agent のトラブルシューティングとデバッグは、ステップ数の多さ、ユーザー入力に基づく実行シーケンスの変動性、詳細な検査を必要とする長い入力と出力、ツールが他のツールを呼び出すネストされたプロセスなどの理由で困難な場合があります。トレースは、Agent の実行の各段階における入力と出力を明確かつ順次的なビューで提供することにより、これらの課題に対処し、問題の特定と解決を容易にします。
 
-## Lab Exercise
+## ラボ演習
 
-This lab is intended for informational purposes only and does not include any exercises.
+このラボは情報提供のみを目的としており、演習は含まれていません。
 
-Take a moment to review the [Tracing using Application Insights](https://learn.microsoft.com/azure/ai-services/agents/concepts/tracing){:target="_blank"}.
+[Application Insights を使用したトレース](https://learn.microsoft.com/azure/ai-services/agents/concepts/tracing){:target="_blank"} を確認してください。
