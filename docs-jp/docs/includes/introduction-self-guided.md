@@ -210,7 +210,7 @@ Agent App が Azure AI Agents Service とモデルにアクセスできるよう
 
 === "Python"
 
-    1. **VS Code メニュー**から、**ファイル** > **ファイルからワークスペースを開く**を選択します。
+    1. **VS Code メニュー**から、**ファイル** > **ファイルでワークスペースを開く**を選択します。
     2. **.vscode/python-workspace.code-workspace** ファイルを選択します。
 
     ## プロジェクト構造
@@ -233,7 +233,7 @@ Agent App が Azure AI Agents Service とモデルにアクセスできるよう
 
 === "C#"
 
-    1. **VS Code メニュー**から、**ファイル** > **ファイルからワークスペースを開く**を選択します。
+    1. **VS Code メニュー**から、**ファイル** > **ファイルでワークスペースを開く**を選択します。
     2. **.vscode/csharp-workspace.code-workspace** ファイルを選択します。
 
     ## プロジェクト構造
