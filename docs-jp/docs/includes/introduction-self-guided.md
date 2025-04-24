@@ -8,10 +8,10 @@
 
 ## 前提条件
 
-- GitHub アカウントが必要です。お持ちでない場合は、[GitHub](https://github.com/join){:target="_blank"}で作成してください。
+- GitHub アカウントが必要です。お持ちでない場合は、[こちらの GitHub 公式ページ](https://github.com/join){:target="_blank"}で作成してください。
 - Azure サブスクリプションへのアクセス。Azure サブスクリプションをお持ちでない場合は以下どちらかをお選びください。
     - **COGBOT コミュニティより Azure AI Fundory を利用するためのキーなどを提供していただく**。
-    - [無料アカウント](https://azure.microsoft.com/free/){:target="_blank"}を作成する。
+    - [Azure の無料アカウント](https://azure.microsoft.com/free/){:target="_blank"}を作成する。
 
 
 ## ワークショップのプログラミング言語を選択
@@ -58,7 +58,7 @@
 
 ## Azure の認証
 
-!!! Warning "COGBOT コミュニティーより Azure サブスクリプションの情報を提供いただく方は、「Azure の認証」「Azure のリソースをデプロイ」のセクションを飛ばして、「**言語ワークスペースの選択**」へ進みます。"
+!!! Info "COGBOT コミュニティより Azure サブスクリプションの情報を提供いただく方は、「Azure の認証」「Azure のリソースをデプロイ」のセクションを飛ばして、「**言語ワークスペースの選択**」へ進みます。"
 
 Agent App が Azure AI Agents Service とモデルにアクセスできるように、Azure に認証する必要があります。以下の手順に従ってください：
 
@@ -211,7 +211,7 @@ Agent App が Azure AI Agents Service とモデルにアクセスできるよう
 
 ## 言語ワークスペースの選択
 
-!!! note "COGBOT コミュニティーより Azure サブスクリプションの情報を提供いただく方は、その情報をもとに .env ファイルを作成します。作成方法は講師が解説します。"
+!!! Info "COGBOT コミュニティより Azure サブスクリプションの情報を提供いただく方は、その情報をもとに .env ファイルを作成します。作成方法は講師が解説します。"
 
 
 
