@@ -12,4 +12,4 @@ LLM によって動的に生成される SQL に関する一般的な懸念事�
 
 ## サンドボックス化
 
-これは、[Azure AI Agents Service コードインタープリター](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?view=azure-python-preview&tabs=python&pivots=overview){:target="_blank"} を使用して、オンデマンドでコードを作成および実行します。コードはサンドボックス化された実行環境で実行され、コードがエージェントのスコープを超えるアクションを実行するのを防ぎます。
+これは、[Azure AI Agents Service のコードインタープリター](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?view=azure-python-preview&tabs=python&pivots=overview){:target="_blank"} を使用して、オンデマンドでコードを作成および実行します。コードはサンドボックス化された実行環境で実行され、コードがエージェントのスコープを超えるアクションを実行するのを防ぎます。

@@ -8,7 +8,7 @@
 
     この Agent は Microsoft Azure のサービス上に構築されています。
 
-    * **生成 AI モデル**: このアプリを支える基盤となる LLM は、[Azure OpenAI gpt-4o](https://learn.microsoft.com/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#gpt-4o-and-gpt-4-turbo){:target="_blank"} LLM です。
+    * **生成 AI モデル**: このアプリを支える基盤となる LLM は、[Azure OpenAI gpt-4o](https://learn.microsoft.com/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#gpt-4o-and-gpt-4-turbo){:target="_blank"} です。
 
     * **ベクターストア*: Agent のクエリをサポートするために、製品情報を PDF ファイルとして提供します。エージェントは、[Azure AI Agent Service ファイル検索ツール](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/file-search?tabs=python&pivots=overview){:target="_blank"} の「Basic エージェント設定」を使用して、ベクトル検索でドキュメントの関連部分を見つけ、それらをコンテキストとしてエージェントに提供します。
 
@@ -16,7 +16,7 @@
 
 2.  **Azure AI Foundry (SDK)**
 
-    このワークショップは、Azure AI Foundry SDK を使用して [Python](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme?view=azure-python-preview&context=%2Fazure%2Fai-services%2Fagents%2Fcontext%2Fcontext){:target="_blank"} と [C#](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/ai.projects-readme?view=azure-dotnet-preview&viewFallbackFrom=azure-python-preview){:target="_blank"} の両方で提供されます。SDK は、[コードインタープリター](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?view=azure-python-preview&tabs=python&pivots=overview){:target="_blank"} や [関数呼び出し](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?view=azure-python-preview&tabs=python&pivots=overview){:target="_blank"} など、Azure AI Agents サービスの主要な機能をサポートします。
+    このワークショップは、Azure AI Foundry SDK を使用して [Python](https://learn.microsoft.com/python/api/overview/azure/ai-projects-readme?view=azure-python-preview&context=%2Fazure%2Fai-services%2Fagents%2Fcontext%2Fcontext){:target="_blank"} と [C#](https://learn.microsoft.com/en-us/dotnet/api/overview/azure/ai.projects-readme?view=azure-dotnet-preview&viewFallbackFrom=azure-python-preview){:target="_blank"} の両方で提供されます。SDK は、[コードインタープリター](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter?view=azure-python-preview&tabs=python&pivots=overview){:target="_blank"} や [Function Calling](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/function-calling?view=azure-python-preview&tabs=python&pivots=overview){:target="_blank"} など、Azure AI Agents サービスの主要な機能をサポートします。
 
 3.  **データベース**
 
