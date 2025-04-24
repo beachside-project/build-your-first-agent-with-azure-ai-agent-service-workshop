@@ -1,6 +1,6 @@
 ## はじめに
 
-会話にドキュメント (ファイル) のコンテキストを含めることは非常に効果的であり、特に運用データベースでは利用できない可能性のある製品詳細を取得する場合に有効です。Azure AI Agent Service には [ファイル検索ツール](https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/tools/file-search){:target="_blank"} が含まれており、これにより Agent は、ユーザーが提供したドキュメントや製品データなどのアップロードされたファイルから直接情報を取得でき、[RAG スタイル](https://learn.microsoft.com/azure/ai-studio/concepts/retrieval-augmented-generation){:target="_blank"} の検索エクスペリエンスを実現します。
+会話にドキュメント (ファイル) のコンテキストを含めることは非常に効果的であり、特に運用中のデータベースでは利用できない可能性のある製品詳細を取得する場合に有効です。Azure AI Agent Service には [ファイル検索ツール](https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/tools/file-search){:target="_blank"} が含まれており、これにより Agent は、ユーザーが提供したドキュメントや製品データなどのアップロードされたファイルから直接情報を取得でき、[RAG スタイル](https://learn.microsoft.com/azure/ai-studio/concepts/retrieval-augmented-generation){:target="_blank"} の検索エクスペリエンスを実現します。
 
 このラボでは、ドキュメント検索を有効にし、Agent 用にテントのデータシートをベクトルストアにアップロードする方法を学びます。有効化されると、このツールにより Agent はファイルを検索し、関連性の高い応答を提供できるようになります。ドキュメントは、すべてのユーザー向けに Agent にアップロードしたり、特定のユーザースレッドにリンクしたり、コードインタープリターにリンクしたりできます。
 
@@ -34,8 +34,8 @@
           # toolset.add(file_search_tool)
           ```
 
-          !!! warning
-              コメント解除する行は隣接していません。# 文字を削除する際は、その後のスペースも削除するようにしてください。
+      !!! warning
+          コメント解除する行は隣接していません。# 文字を削除する際は、その後のスペースも削除するようにしてください。
 
       3. `main.py` ファイルのコードを確認します。
 
