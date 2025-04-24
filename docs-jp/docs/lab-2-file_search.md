@@ -109,37 +109,37 @@
 
 以下の会話では、Contoso 売上データベースとアップロードされたテントデータシートの両方のデータを使用するため、結果はクエリによって異なります。
 
-1.  **どのブランドのハイキングシューズを販売していますか？** (または「What brands of hiking shoes do we sell?」など)
+1.  **どのブランドのハイキングシューズを販売していますか？** 
 
     !!! info
         ハイキングシューズに関する情報を含むファイルを Agent に提供していません。
 
         最初のラボで、基盤となるデータベースの取引履歴にも製品ブランドや説明が含まれていなかったことにお気づきかもしれません。
 
-2.  **どのブランドのテントを販売していますか？** (または「What brands of tents do we sell?」など)
+2.  **どのブランドのテントを販売していますか？**
 
     Agent は、テントデータシートに記載されている個別のテントブランドのリストで応答します。
 
     !!! info
         Agent は提供されたデータシートを参照して、ブランド、説明、製品タイプ、カテゴリなどの詳細にアクセスし、このデータを Contoso 売上データベースに関連付けることができるようになりました。
 
-3.  **これらのブランドに関連付けられている製品タイプとカテゴリは何ですか？** (または「What product type and categories are these brands associated with?」など)
+3.  **これらのブランドに関連付けられている製品タイプとカテゴリは何ですか？**
 
     Agent は、テントブランドに関連付けられている製品タイプとカテゴリのリストを提供します。
 
-4.  **2024年のテントの売上を製品タイプ別に教えてください。各ブランドも含めて。** (または「What were the sales of tents in 2024 by product type? Include the brands associated with each.」など)
+4.  **2024年のテントの売上高は製品タイプ別にどのくらいでしたか？各製品に関連するブランドを含めてください。**
 
     !!! info
-        Agent がこれを間違え、AlpineGear にファミリーキャンプ用テントがあると誤って示唆する可能性があります。これに対処するには、指示やデータシートでさらにコンテキストを提供するか、次のプロンプトのように Agent に直接コンテキストを提供します。
+        Agent がこれを間違え、AlpineGear に "FAMILY CAMPING TENTS" (ファミリーキャンプ用テント) があると誤って示唆する可能性があります。これに対処するには、指示やデータシートでさらにコンテキストを提供するか、次のプロンプトのように Agent に直接コンテキストを提供します。
 
-5.  **What were the sales of AlpineGear in 2024 by region?** (または「2024年の AlpineGear の地域別売上は？」など)
+5.  **2024年の AlpineGear の地域別売上は？**
 
     Agent は Contoso 売上データベースからの売上データで応答します。
 
     !!! info
-        Agent は、Alpine Gear がバックパッキングテントのブランドであるという情報にアクセスできるようになったため、これを「CAMPING & HIKING」カテゴリのすべてのテントの売上を検索するリクエストとして解釈します。
+        Agent は、Alpine Gear が "BACKPACKING TENTS" のブランドであるという情報にアクセスできるようになったため、これを"CAMPING & HIKING" カテゴリのすべてのテントの売上を検索するリクエストとして解釈します。
 
-6.  **Contoso は AlpineGear のファミリーキャンプ用テントを販売していません。もう一度試してください。** (または「Contoso does not sell Family Camping tents from AlpineGear. Try again.」など)
+6.  **Contoso は AlpineGear の FAMILY CAMPING TENTS を販売していません。もう一度調べてください。** (または「Contoso does not sell Family Camping tents from AlpineGear. Try again.」など)
 
     よくなりました！
 
