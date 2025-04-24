@@ -33,8 +33,6 @@
           # file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])
           # toolset.add(file_search_tool)
           ```
-        # toolset.add(file_search_tool)
-        ```
 
         !!! warning
             コメント解除する行は隣接していません。# 文字を削除する際は、その後のスペースも削除するようにしてください。
