@@ -10,8 +10,8 @@
 
 - GitHub アカウントが必要です。お持ちでない場合は、[GitHub](https://github.com/join){:target="_blank"}で作成してください。
 - Azure サブスクリプションへのアクセス。Azure サブスクリプションをお持ちでない場合は以下どちらかをお選びください。
-  - **COGBOT コミュニティより Azure AI Fundory を利用するためのキーなどを提供していただく**。
-  - [無料アカウント](https://azure.microsoft.com/free/){:target="_blank"}を作成する。
+    - **COGBOT コミュニティより Azure AI Fundory を利用するためのキーなどを提供していただく**。
+    - [無料アカウント](https://azure.microsoft.com/free/){:target="_blank"}を作成する。
 
 
 ## ワークショップのプログラミング言語を選択
