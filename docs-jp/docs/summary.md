@@ -1,37 +1,37 @@
-# Summary
+# まとめ
 
-This workshop demonstrated how to leverage the Azure AI Agent Service to create a robust conversational agent capable of answering sales-related questions, performing data analysis, generating visualizations, and integrating external data sources for enhanced insights. Here are the key takeaways:
+このワークショップでは、Azure AI Agent Service を活用して、売上関連の質問に回答し、データ分析を実行し、視覚化を生成し、外部データソースを統合して洞察を強化できる堅牢な対話型 Agent を作成する方法を示しました。以下に主要なポイントをまとめます：
 
-## 1. Function Calling and Dynamic SQL Queries
+## 1. Function Calling と動的 SQL クエリ
 
-- The agent uses the Azure AI Agent Service to dynamically generate and execute SQL queries against a read-only SQLite database, enabling it to respond to user questions with accurate data retrieval.
+- Agentは Azure AI Agent Service を使用して、読み取り専用の SQLite データベースに対して SQL クエリを動的に生成および実行し、正確なデータ取得でユーザーの質問に応答できるようにします。
 
-## 2. Context Management
+## 2. コンテキスト管理
 
-- The agent efficiently manages conversation context using the Azure AI Agent Service, ensuring interactions remain relevant and coherent.
+- Agent は Azure AI Agent Service を使用して会話コンテキストを効率的に管理し、対話が関連性を保ち、一貫性のあるものになるようにします。
 
-## 3. Data Visualization
+## 3. データの視覚化
 
-- With the Code Interpreter, the agent can generate visualizations such as pie charts and tables based on user queries, making data more accessible and actionable. You can attach additional fonts to the Code Interpreter to create visualizations that support multiple languages.
+- コードインタープリターを使用すると、Agent はユーザーのクエリに基づいて円グラフやテーブルなどの視覚化を生成し、データをよりアクセスしやすく、実用的なものにします。コードインタープリターに追加のフォントを添付して、多言語をサポートする視覚化を作成できます。
 
-## 4. File Generation
+## 4. ファイル生成
 
-- The agent can create downloadable files, including Excel, CSV, JSON, and image formats, providing users with flexible options to analyze and share data.
+- Agent は、Excel、CSV、JSON、画像形式などのダウンロード可能なファイルを作成でき、ユーザーにデータを分析および共有するための柔軟なオプションを提供します。
 
 ## 5. Grounding with Bing
 
-- By integrating Bing search, the agent can perform grounded searches for competitive product analysis, expanding its insights beyond internal data sources.
+- Bing Search を統合することにより、Agent は競合製品分析のためのグラウンディングされた検索を実行でき、内部データソースを超えて洞察を広げます。
 
-## 6. Security Best Practices
+## 6. セキュリティのベストプラクティス
 
-- Security risks, such as SQL injection, are mitigated by enforcing read-only database access and running the app within a secure environment.
+- SQL インジェクションなどのセキュリティリスクは、読み取り専用のデータベースアクセスを強制し、安全な環境内でアプリを実行することによって軽減されます。
 
-## 7. Multi-Language Support
+## 7. 多言語サポート
 
-- The agent and LLM support multiple languages, offering an inclusive experience for users from diverse linguistic backgrounds.
+- Agent と LLM は複数の言語をサポートし、多様な言語的背景を持つユーザーに包括的な体験を提供します。
 
-## 8. Adaptability and Customization
+## 8. 適応性とカスタマイズ
 
-- The workshop emphasizes the flexibility of the Azure AI Agent Service, allowing you to adapt the agent for various use cases, such as customer support or competitive analysis, by modifying instructions and integrating additional tools.
+- このワークショップでは、Azure AI Agent Service の柔軟性を強調し、指示を変更したり追加のツールを統合したりすることで、カスタマーサポートや競合分析などのさまざまなユースケースに合わせて Agent を適応させることができます。
 
-This workshop equips you with the knowledge and tools to build and extend conversational agents tailored to your business needs, leveraging the full capabilities of the Azure AI Agent Service.
+このワークショップは、Azure AI Agent Service の全機能を活用して、ビジネスニーズに合わせた対話型 Agent を構築および拡張するための知識とツールを提供します。

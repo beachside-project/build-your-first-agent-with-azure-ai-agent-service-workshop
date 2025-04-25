@@ -1,21 +1,21 @@
-site_name: Build your code-first agent with Azure AI Foundry
+site_name: Build your code-first agent with Azure AI Foundry powered by COGBOT Community (JP)
 
 nav:
-  - Introduction: index.md
-  - Solution Architecture: architecture.md
-  - Security Considerations: security.md
+  - はじめに: index.md
+  - ソリューションアーキテクチャー: architecture.md
+  - セキュリティに関する懸念事項: security.md
   - Getting Started: getting-started.md
   # - Workshop Setup:
   #   - BUILD Attendees: introduction-event.md
   #   - Self-Guided Learners: introduction-self-guided.md
-  - Lab 1 Function Calling Power: lab-1-function_calling.md
-  - Lab 2 Grounding with Documents: lab-2-file_search.md
-  - Lab 3 Intro to the Code Interpreter: lab-3-code_interpreter.md
-  - Lab 4 Grounding with Bing Search: lab-4-bing_search.md
-  - Lab 5 Multilingual Visualizations: lab-5-multilingual.md
-  - Lab 6 Finishing Up: finishing-up.md
-  - Summary: summary.md
-  - Resources: resources.md
+  - Lab 1🧪Function Calling のパワー: lab-1-function_calling.md
+  - Lab 2🧪ドキュメントのグラウンディング: lab-2-file_search.md
+  - Lab 3🧪コードインタープリター入門: lab-3-code_interpreter.md
+  - Lab 4🧪Grounding with Bing Search: lab-4-bing_search.md
+  - Lab 5🧪多言語での視覚化: lab-5-multilingual.md
+  - Lab 6🧪最後に: finishing-up.md
+  - まとめ: summary.md
+  - リソース情報: resources.md
   # - Deployment: deployment.md
   # - Troubleshooting: troubleshooting.md
 

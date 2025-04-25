@@ -1,53 +1,55 @@
-## Introduction
+## はじめに
 
-In the Grounding with Documents lab, we uploaded a PDF file to provide context for conversations. Now, we’ll enhance the Code Interpreter by uploading a ZIP file with fonts for multilingual visualizations—just one example of how [file uploads](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter){:target="_blank"} can extend its functionality.
+「Lab 2🧪ドキュメントのグラウンディング」では、会話にドキュメントのコンテキストを提供するために PDF ファイルをアップロードしました。今回は、多言語の視覚化のためのフォントを含む ZIP ファイルをアップロードしてコードインタープリターを強化します。これは、[ファイルのアップロード](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/code-interpreter){:target="_blank"} がその機能を拡張する方法の一例にすぎません。
 
 !!! note
-    The Code Interpreter includes a default set of Latin-based fonts. Since the Code Interpreter runs in a sandboxed Python environment, it can’t download fonts directly from the internet.
+    コードインタープリターには、デフォルトでラテン文字ベースのフォントセットが含まれています。コードインタープリターはサンドボックス化された Python 環境で実行されるため、インターネットから直接フォントをダウンロードすることはできません。
 
-## Lab Exercise
+## ラボ演習
 
-Earlier labs didn’t include multilingual support because uploading the required font ZIP file and linking it to the Code Interpreter is time-consuming. In this lab, we’ll enable multilingual support by uploading the necessary fonts. You’ll also learn some tips on how to guide the Code Interpreter using extended instructions.
+以前のラボでは、必要なフォント ZIP ファイルをアップロードしてコードインタープリターにリンクするのに時間がかかるため、多言語サポートは含まれていませんでした。このラボでは、必要なフォントをアップロードして多言語サポートを有効にします。また、拡張された指示を使用してコードインタープリターをガイドするためのヒントも学びます。
 
-## Rerun the previous lab
+## 前のラボを再実行する
 
-First, we're going to rerun the previous lab so we can see how the Code Interpreter supports multilingual text.
+まず、コードインタープリターが多言語テキストをどのようにサポートするか（現状）を確認するために、前のラボを再実行します。
 
-1. Start the agent app by pressing <kbd>F5</kbd>.
-2. In the terminal, the app will start, and the agent app will prompt you to  **Enter your query**.
-3. Try these questions:
+1.  <kbd>F5</kbd> を押してAgent app を開始します。
 
-      1. `What were the sales by region for 2022`
-      2. `In Korean`
-      3. `Show as a pie chart`
+2.  ターミナルでアプリが起動し、Agent app から**クエリを入力してください (Enter your query)** というプロンプトが表示されます。
 
-        Once the task is complete, the pie chart image will be saved in the **shared/files** subfolder. Review the visualization, and you'll see that the text is not rendered correctly. This is because the Code Interpreter doesn't have the necessary fonts to render non-Latin characters.
+3.  これらの質問を試してみてください：
+
+    1.  **2023年の地域別売上は？**
+
+    2.  **円グラフで表示してください**
+
+        タスクが完了すると、円グラフの画像が **shared/files** サブフォルダに保存されます。視覚化を確認すると、テキストが正しくレンダリングされていないことがわかります。これは、コードインタープリターに必要な非ラテン文字をレンダリングするためのフォントがないためです。
 
         ![The image shows korean pie chart without Korean text](media/sales_by_region_2022_pie_chart_korean.png){width=75%}
 
-4. When you're done, type **exit** to clean up the agent resources and stop the app.
+4.  完了したら、**exit** と入力してAgent のリソースをクリーンアップし、アプリを停止します。
 
-## Add Multilingual Font Support
+## 多言語フォントサポートの追加
 
 === "Python"
 
-    1. Open the `main.py`.
+    1. `main.py` を開きます。
 
-    2. Define a new instructions file for our agent: **uncomment** the following lines by removing the **"# "** characters
+    2. Agent用に新しい指示ファイルを定義します： **"# "** 文字を削除して、次の行の**コメントを解除**します
 
         ```python
-        INSTRUCTIONS_FILE = "instructions/code_interpreter_multilingual.txt"
+        # INSTRUCTIONS_FILE = "instructions/code_interpreter_multilingual.txt"
 
-        font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
-        code_interpreter.add_file(file_id=font_file_info.id)
+        # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
+        # code_interpreter.add_file(file_id=font_file_info.id)
         ```
 
         !!! warning
-            The lines to be uncommented are not adjacent. When removing the # character, ensure you also delete the space that follows it.
+            コメント解除する行は隣接していません。# 文字を削除する際は、その後のスペースも削除するようにしてください。
 
-    3. Review the code in the `main.py` file.
+    3. `main.py` ファイルのコードを確認します。
 
-        After uncommenting, your code should look like this:
+        コメント解除後、コードは次のようになります：
 
         ```python
         INSTRUCTIONS_FILE = "instructions/function_calling.txt"
@@ -61,14 +63,14 @@ First, we're going to rerun the previous lab so we can see how the Code Interpre
             """Add tools for the agent."""
             font_file_info = None
 
-            # Add the functions tool
+            # 関数ツールを追加
             toolset.add(functions)
 
-            # Add the code interpreter tool
+            # コードインタープリターツールを追加
             code_interpreter = CodeInterpreterTool()
             toolset.add(code_interpreter)
 
-            # Add the tents data sheet to a new vector data store
+            # テントのデータシートを新しいベクトルデータストアに追加
             vector_store = await utilities.create_vector_store(
                 project_client,
                 files=[TENTS_DATA_SHEET_FILE],
@@ -77,11 +79,11 @@ First, we're going to rerun the previous lab so we can see how the Code Interpre
             file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])
             toolset.add(file_search_tool)
 
-            # Add multilingual support to the code interpreter
+            # コードインタープリターに多言語サポートを追加
             font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
             code_interpreter.add_file(file_id=font_file_info.id)
 
-            # Add the Bing grounding tool
+            # Bing グラウンディングツールを追加
             bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
             bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
             toolset.add(bing_grounding)
@@ -91,79 +93,77 @@ First, we're going to rerun the previous lab so we can see how the Code Interpre
 
 === "C#"
 
-    1. Open the `Program.cs` file.
+    1. `Program.cs` ファイルを開きます。
 
-    2. **Update** the creation of the lab to use the `Lab2` class.
+    2. ラボの作成を `Lab2` クラスを使用するように**更新**します。
 
         ``` csharp
         await using Lab lab = new Lab5(projectClient, apiDeploymentName);
         ```
 
-    3. Review the `Lab4.cs` class to see how the Code Interpreter is added to the Tools list.
+    3. `Lab4.cs` クラスを確認し、コードインタープリターがツールリストにどのように追加されるかを確認します。
 
-## Review the Instructions
+## 指示の確認
 
-1. Open the **shared/instructions/code_interpreter_multilingual.txt** file. This file replaces the instructions used in the previous lab.
-2. The **Tools** section now includes an extended “Visualization and Code Interpretation” section describing how to create visualizations and handle non-Latin languages.
+1.  **shared/instructions/code_interpreter_multilingual.txt** ファイルを開きます。このファイルは、前のラボで使用された指示を置き換えます。
+2.  **ツール**セクションには、視覚化の作成方法と非ラテン言語の処理方法を説明する、拡張された「視覚化とコード解釈 (Visualization and Code Interpretation)」セクションが含まれるようになりました。
 
-    The following is a summary of the instructions given to the Code Interpreter:
+    以下は、コードインタープリターに与えられた指示の要約です：
 
-    - **Font Setup for Non-Latin Scripts (e.g., Arabic, Japanese, Korean, Hindi):**
-      - On first run, verify if the `/mnt/data/fonts` folder exists. If missing, unzip the font file into this folder.
-      - **Available Fonts:**
-        - Arabic: `CairoRegular.ttf`
-        - Hindi: `NotoSansDevanagariRegular.ttf`
-        - Korean: `NanumGothicRegular.ttf`
-        - Japanese: `NotoSansJPRegular.ttf`
+    * **非ラテン文字（例：アラビア語、日本語、韓国語、ヒンディー語）のフォント設定：**
+        * 初回実行時に、`/mnt/data/fonts` フォルダが存在するか確認します。存在しない場合は、フォントファイルをこのフォルダに解凍します。
+        * **利用可能なフォント：**
+            * アラビア語： `CairoRegular.ttf`
+            * ヒンディー語： `NotoSansDevanagariRegular.ttf`
+            * 韓国語： `NanumGothicRegular.ttf`
+            * 日本語： `NotoSansJPRegular.ttf`
 
-    - **Font Usage:**
-      - Load the font with `matplotlib.font_manager.FontProperties` using the correct path.
-      - Apply the font to:
-        - `plt.title()` using the `fontproperties` parameter.
-        - All labels and text using `textprops={'fontproperties': font_prop}` in functions like `plt.pie()` or `plt.bar_label()`.
-      - Ensure all text (labels, titles, legends) is properly encoded, without boxes or question marks.
+    * **フォントの使用法：**
+        * 正しいパスを使用して `matplotlib.font_manager.FontProperties` でフォントを読み込みます。
+        * フォントを適用する対象：
+            * `fontproperties` パラメータを使用して `plt.title()` に。
+            * `plt.pie()` や `plt.bar_label()` のような関数で `textprops={'fontproperties': font_prop}` を使用して、すべてのラベルとテキストに。
+        * すべてのテキスト（ラベル、タイトル、凡例）が、豆腐（□）や疑問符なしで正しくエンコードされていることを確認します。
 
-    - **Visualization Text:**
-      - Always translate the data to the requested or inferred language (e.g., Chinese, French, English).
-      - Use the appropriate font from `/mnt/data/fonts/fonts` for all chart text (e.g., titles, labels).
+    * **視覚化テキスト：**
+        * 常にデータを要求された言語または推測された言語（例：中国語、フランス語、英語）に翻訳します。
+        * すべてのグラフテキスト（例：タイトル、ラベル）には `/mnt/data/fonts/fonts` から適切なフォントを使用します。
 
-## Run the Agent App
+## Agent app の実行
 
-1. Press <kbd>F5</kbd> to run the app.
-2. In the terminal, the app will start, and the agent app will prompt you to  **Enter your query**.
+1.  <kbd>F5</kbd> を押してアプリを実行します。
+2.  ターミナルでアプリが起動し、Agent app から**クエリを入力してください (Enter your query)** というプロンプトが表示されます。
 
-### Start a Conversation with the Agent
+### Agent との会話を開始する
 
-Try these questions:
+これらの質問を試してみてください：
 
-1. `What were the sales by region for 2022`
-2. `In Korean`
-3. `Show as a pie chart`
+    1.  **2023年の地域別売上は？**
 
-    Once the task is complete, the pie chart image will be saved in the **shared/files** subfolder.
+    2.  **円グラフで表示してください**
 
-    ![The image shows korean pie chart with Korean text](media/sales_by_region_pie_chart_korean_font.png){width=75%}
+    タスクが完了すると、文字化けしていない円グラフの画像が **shared/files** サブフォルダに保存されます。
 
-## Debugging the Code Interpreter
+## コードインタープリターのデバッグ
 
-You can’t directly debug the Code Interpreter, but you can gain insight into its behavior by asking the agent to display the code it generates. This helps you understand how it interprets your instructions and can guide you in refining them.
+コードインタープリターを直接デバッグすることはできませんが、Agent に生成したコードを表示させることで、その動作についての洞察を得ることができます。これにより、Agent が指示をどのように解釈するかを理解し、指示を改善するのに役立ちます。
 
-From the terminal, type:
+ターミナルから、次のように入力します：
 
-1. `show code` to see the code generated by the Code Interpreter for the last visualization.
-1. `list files mounted at /mnt/data` to see the files uploaded to the Code Interpreter.
+1.  **コードを表示して** と入力して、最後の視覚化のためにコードインタープリターが生成したコードを確認します。
+2.  **/mnt/data にマウントしたファイルの一覧を教えて** と入力して、コードインタープリターにアップロードされたファイルを確認します。
 
-## Restricting Code Interpreter Output
+## コードインタープリター出力の制限
 
-You likely don’t want end users to see the code generated by the Code Interpreter or access uploaded or created files. To prevent this, add instructions to restrict the Code Interpreter from displaying code or listing files.
+エンドユーザーには、コードインタープリターが生成したコードを見せたり、アップロードまたは作成されたファイルにアクセスさせたりしたくないでしょう。これを防ぐには、コードインタープリターがコードを表示したりファイルをリストしたりすることを制限する指示を追加します。
 
-For example, you can insert the following instructions at the beginning of the `2. Visualization and Code Interpretation` section in the `code_interpreter_multilingual.txt` file.
+例えば、`code_interpreter_multilingual.txt` ファイルの `3. 可視化とコード解釈` セクションの最初に、次の指示を挿入できます。
 
 ```text
-- Never show the code you generate to the user.
-- Never list the files mounted at /mnt/data.
+- 生成したコードをユーザーに決して表示しないでください。
+- /mnt/data にマウントされたファイルの一覧を決して表示しないでください。
 ```
 
-## Stop the Agent App
+## Agent app の停止
 
-When you're done, type **exit** to clean up the agent resources and stop the app.
+完了したら、**exit** と入力してAgent のリソースをクリーンアップし、アプリを停止します。

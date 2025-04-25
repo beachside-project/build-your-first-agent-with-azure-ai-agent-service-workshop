@@ -70,7 +70,7 @@ async def add_agent_tools() -> None:
     # Add the functions tool
     # toolset.add(functions)
 
-    # Add the tents data sheet to a new vector data store
+    # テントのデータシートを新しいベクトルデータストアに追加
     # vector_store = await utilities.create_vector_store(
     #     project_client,
     #     files=[TENTS_DATA_SHEET_FILE],
@@ -79,15 +79,15 @@ async def add_agent_tools() -> None:
     # file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])
     # toolset.add(file_search_tool)
 
-    # Add the code interpreter tool
+    # コードインタープリターツールを追加
     # code_interpreter = CodeInterpreterTool()
     # toolset.add(code_interpreter)
 
-    # Add multilingual support to the code interpreter
+    # コードインタープリターに多言語サポートを追加
     # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
     # code_interpreter.add_file(file_id=font_file_info.id)
 
-    # Add the Bing grounding tool
+    # Bing grounding ツールを追加
     # bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
     # bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
     # toolset.add(bing_grounding)

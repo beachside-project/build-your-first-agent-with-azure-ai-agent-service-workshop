@@ -1,111 +1,122 @@
-## Self-Guided Learners
+## Self-Guided Learners (自己学習者向け)
 
-These instructions are for self-guided learners who do not have access to a pre-configured lab environment. Follow these steps to set up your environment and begin the workshop.
+このページは、Self-Guided Learners **(自己学習者向け)** のコンテンツです。以下の手順に従って環境をセットアップし、ワークショップを開始してください。
 
-## Introduction
+## はじめに
 
-This workshop is designed to teach you about the Azure AI Agents Service and the associated SDK. It consists of multiple labs, each highlighting a specific feature of the Azure AI Agents Service. The labs are meant to be completed in order, as each one builds on the knowledge and work from the previous lab.
+このワークショップは、Azure AI Agents サービスと関連 SDK について学ぶことを目的としています。複数のラボで構成されており、各ラボでは Azure AI Agents サービスの特定の機能に焦点を当てています。各ラボは前のラボの知識と作業に基づいて構築されるため、順番に完了することを想定しています。
 
-## Prerequisites
+## 前提条件
 
-1. Access to an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/){:target="_blank"} before you begin.
-1. You need a GitHub account. If you don’t have one, create it at [GitHub](https://github.com/join){:target="_blank"}.
+- GitHub アカウントが必要です。お持ちでない場合は、[こちらの GitHub 公式ページ](https://github.com/join){:target="_blank"}で作成してください。
+- Azure サブスクリプションへのアクセス。Azure サブスクリプションをお持ちでない場合は以下どちらかをお選びください。
+    - **COGBOT コミュニティより Azure AI Fundory を利用するためのキーなどを提供していただく**。
+    - [Azure の無料アカウント](https://azure.microsoft.com/free/){:target="_blank"}を作成する。
 
-## Select Workshop Programming Language
 
-The workshop is available in both Python and C#. Use the language selector tabs to choose your preferred language wherever applicable. Note, don't switch languages mid-lab.
+## ワークショップのプログラミング言語を選択
 
-**Select the tab for your preferred language:**
+ワークショップは Python と C# の両方で利用可能です。該当箇所では、言語セレクタータブを使用して希望の言語を選択してください。注意：ラボの途中で言語を切り替えないでください。
+
+**希望する言語のタブを選択してください：**
 
 === "Python"
-    The default language for the workshop is set to **Python**.
+    ワークショップのデフォルト言語は **Python** に設定されています。
 === "C#"
-    The default language for the workshop is set to **C#**.
+    ワークショップのデフォルト言語は **C#** に設定されています。
 
-## Open the Workshop
+## ワークショップを開く
 
-The preferred way to run this workshop is using GitHub Codespaces. This option provides a pre-configured environment with all the tools and resources needed to complete the workshop. Alternatively, you can open the workshop locally using a Visual Studio Code Dev Container.
+このワークショップを実行する推奨方法は、GitHub Codespaces を使用することです。このオプションは、ワークショップを完了するために必要なすべてのツールとリソースを備えた事前設定済みの環境を提供します。
+または、Visual Studio Code の Dev Container を使用してローカルでワークショップを開くこともできます。
+
 
 === "GitHub Codespaces"
 
-    Select **Open in GitHub Codespaces** to open the project in GitHub Codespaces.
+    **Open in GitHub Codespaces** をクリックして、GitHub Codespaces でプロジェクトを開きます。
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop){:target="_blank"}
 
-    !!! Warning "Building the Codespace will take several minutes. You can continue reading the instructions while it builds."
+    !!! Warning "Codespace のビルドには数分かかります。ビルド中に指示を読み進めることができます。"
 
 === "VS Code Dev Container"
+    
+    ローカル環境でのトラブルが発生すると、ワークショップが全く進行できずタイムアップになる可能性があるため、ローカルで VS Code から Dev Container の利用に精通している方のみが利用してください。
 
-    !!! warning "Apple Silicon Users"
-        The automated deployment script you’ll be running soon isn’t supported on Apple Silicon. Please run the deployment script from Codespaces or from macOS instead of the Dev Container.
+    !!! warning "Apple Silicon ユーザー"
+        まもなく実行する自動デプロイスクリプトは Apple Silicon ではサポートされていません。デプロイスクリプトは、Dev コンテナーではなく Codespaces または macOS から実行してください。
 
-    Alternatively, you can open the project locally using a Visual Studio Code Dev Container, which will open the project in your local VS Code development environment using the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers){:target="_blank"}.
+    Visual Studio Code Dev コンテナーを使用してローカルでプロジェクトを開くこともできます。これにより、[Dev Containers 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers){:target="_blank"}を使用して、ローカルの VS Code 開発環境でプロジェクトが開かれます。
 
-    1. Start Docker Desktop (install it if not already installed)
-    2. Select **Dev Containers Open** to open the project in a VS Code Dev Container.
+    1. Docker Desktop を起動します（まだインストールされていない場合はインストールします）。
+    2. **Dev Containers Open** を選択して、VS Code Dev コンテナーでプロジェクトを開きます。
 
-        [![Open in Dev Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop)
+        [![Dev Containers で開く](https://img.shields.io/static/v1?style=for-the-badge&label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop)
 
-    !!! Warning "The process of building the Dev Container, which involves downloading and setting it up on your local system, will take several minutes. During this time, you can continue reading the instructions."
+    !!! Warning "ローカルシステムでのダウンロードとセットアップを含む Dev コンテナーのビルドプロセスには数分かかります。この間、指示を読み進めることができます。"
 
-## Authenticate with Azure
 
-You need to authenticate with Azure so the agent app can access the Azure AI Agents Service and models. Follow these steps:
+## Azure の認証
 
-1. Ensure the Codespace has been created.
-1. In the Codespace, open a new terminal window by selecting **Terminal** > **New Terminal** from the **VS Code menu**.
-1. Run the following command to authenticate with Azure:
+!!! Info "COGBOT コミュニティより Azure サブスクリプションの情報を提供いただく方は、「Azure の認証」「Azure のリソースをデプロイ」のセクションを飛ばして、「**言語ワークスペースの選択**」へ進みます。"
+
+Agent App が Azure AI Agents Service とモデルにアクセスできるように、Azure に認証する必要があります。以下の手順に従ってください：
+
+1. Codespace が作成されていることを確認します。
+2. Codespace で、**VS Code メニュー**から**ターミナル** > **新しいターミナル**を選択して、新しいターミナルウィンドウを開きます。
+3. 次のコマンドを実行して Azure に認証します：
 
     ```shell
     az login --use-device-code
     ```
 
     !!! note
-        You'll be prompted to open a browser link and log in to your Azure account. Be sure to copy the authentication code first.
+        ブラウザリンクを開き、Azure アカウントにログインするように求められます。最初に認証コードをコピーしてください。
 
-        1. A browser window will open automatically, select your account type and click **Next**.
-        2. Sign in with your Azure subscription **Username** and **Password**.
-        3. **Paste** the authentication code.
-        4. Select **OK**, then **Done**.
+        1. ブラウザウィンドウが自動的に開き、アカウントの種類を選択して**次へ**をクリックします。
+        2. Azure サブスクリプションの**ユーザー名**と**パスワード**でサインインします。
+        3. 認証コードを**貼り付け**ます。
+        4. **OK**、次に**完了**を選択します。
 
     !!! warning
-        If you have multiple Azure tenants, then you will need to select the appropriate tenant when authenticating.
+        複数の Azure テナントをお持ちの場合は、認証時に適切なテナントを選択する必要があります。
 
         ```shell
         az login --use-device-code --tenant <tenant_id>
         ```
 
-1. Next, select the appropriate subscription from the command line.
-1. Leave the terminal window open for the next steps.
+1. 次に、コマンドラインから適切なサブスクリプションを選択します。
+2. 次のステップのためにターミナルウィンドウを開いたままにしておきます。
 
-## Deploy the Azure Resources
+## Azure のリソースをデプロイ
 
-The following resources will be created in the `rg-contoso-agent-workshop` resource group in your Azure subscription.
+以下のリソースが、Azure サブスクリプションの `rg-contoso-agent-workshop` リソースグループに作成されます。
 
-- An **Azure AI Foundry hub** named **agent-wksp**
-- An **Azure AI Foundry project** named **Agent Service Workshop**
-- A **Serverless (pay-as-you-go) GPT-4o model deployment** named **gpt-4o (Global 2024-08-06)**. See pricing details [here](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/){:target="_blank"}.
-- A **Grounding with Bing Search** resource. See the [documentation](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding) and [pricing](https://www.microsoft.com/en-us/bing/apis/grounding-pricing){:target="_blank"} for details.
+* **agent-wksp** という名前の **Azure AI Foundry Hub**
+* **Agent Service Workshop** という名前の **Azure AI Foundry project**
+* **gpt-4o (Global 2024-08-06)** という名前の **サーバーレス (従量課金制) GPT-4o モデルのデプロイメント**。価格の詳細はこちら[こちら](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/){:target="_blank"}。
+* **Grounding with Bing Search** というリソース。[ドキュメント](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding)と[価格](https://www.microsoft.com/en-us/bing/apis/grounding-pricing){:target="_blank"}で詳細をご覧ください。
 
-!!! warning "You will need 140K TPM quota availability for the gpt-4o Global Standard SKU, not because the agent uses lots of tokens, but due to the frequency of calls made by the agent to the model. Review your quota availability in the [AI Foundry Management Center](https://ai.azure.com/managementCenter/quota){:target="_blank"}."
+!!! warning "gpt-4o Global Standard SKU で 140K TPM のクォータ可用性が必要です。これは、エージェントが大量のトークンを使用するためではなく、エージェントがモデルに対して行う呼び出しの頻度のためです。[AI Foundry Management Center](https://ai.azure.com/managementCenter/quota){:target="_blank"}でクォータの可用性を確認してください。"
 
-We have provided a bash script to automate the deployment of the resources required for the workshop. Alternatively, you may deploy resources manually using Azure AI Foundry studio. Select the desired tab.
+ワークショップに必要なリソースのデプロイを自動化するための bash スクリプトを提供しています。または、Azure AI Foundry スタジオを使用して手動でリソースをデプロイすることもできます。希望するタブを選択してください。
 
-=== "Automated deployment"
 
-    The script `deploy.sh` deploys to the `eastus2` region by default; edit the file to change the region or resource names. To run the script, open the VS Code terminal and run the following command:
+=== "自動デプロイ"
+
+    スクリプト `deploy.sh` は、デフォルトで `eastus2` リージョンにデプロイします。リージョンまたはリソース名を変更するには、ファイルを編集してください。スクリプトを実行するには、VS Code ターミナルを開き、次のコマンドを実行します：
 
     ```bash
     cd infra && ./deploy.sh
     ```
 
-    ### Workshop Configuration
+    ### ワークショップ構成
 
     === "Python"
 
-        The deploy script generates the **.env** file, which contains the project connection string, model deployment name, and Bing connection name.
+        デプロイスクリプトは、プロジェクト接続文字列、モデルデプロイメント名、および Bing 接続名を含む **.env** ファイルを生成します。
 
-        Your **.env** file should look similar to this but with your project connection string.
+        **.env** ファイルは、プロジェクト接続文字列を除いて、次のように表示されるはずです。
 
         ```python
         MODEL_DEPLOYMENT_NAME="gpt-4o"
@@ -114,136 +125,140 @@ We have provided a bash script to automate the deployment of the resources requi
         ```
     === "C#"
 
-        The automated deployment script stores project variables securely by using the Secret Manager feature for [safe storage of app secrets in development in ASP.NET Core](https://learn.microsoft.com/aspnet/core/security/app-secrets){:target="_blank"}.
+        自動デプロイスクリプトは、[ASP.NET Core での開発におけるアプリシークレットの安全な保存](https://learn.microsoft.com/aspnet/core/security/app-secrets){:target="_blank"}のためのシークレットマネージャー機能を使用して、プロジェクト変数を安全に保存します。
 
-        You can view the secrets by running the following command:
+        次のコマンドを実行してシークレットを表示できます：
 
         ```bash
         dotnet user-secrets list
         ```
 
-=== "Manual deployment"
+=== "手動デプロイ"
 
-    Alternatively, if you prefer not to use the `deploy.sh` script you can deploy the resources manually using the Azure AI Foundry portal as follows:
+    または、`deploy.sh` スクリプトを使用したくない場合は、次のように Azure AI Foundry ポータルを使用して手動でリソースをデプロイできます：
 
-    1. Navigate to the [Azure AI Foundry](https://ai.azure.com){:target="_blank"} web portal using your browser and sign in with your account.
-    2. Select **+ Create project**.
+    1. ブラウザを使用して [Azure AI Foundry](https://ai.azure.com){:target="_blank"} Web ポータルに移動し、アカウントでサインインします。
+    2. **+ プロジェクトを作成**を選択します。
 
-        - Name the project
+        * プロジェクトに名前を付けます
 
             ```text
             agent-workshop
             ```
 
-        - Create a new hub named
+        * 次の名前で新しいハブを作成します
 
             ```text
             agent-workshop-hub
             ```
 
-        - Select **Create** and wait for the project to be created.
-    3. From **My assets**, select **Models + endpoints**.
-    4. Select **Deploy Model / Deploy Base Model**.
+        * **作成**を選択し、プロジェクトが作成されるのを待ちます。
+    3. **マイ アセット**から、**モデル + エンドポイント**を選択します。
+    4. **モデルのデプロイ / 基本モデルのデプロイ**を選択します。
 
-           - Select **gpt-4o** from the model list, then select **Confirm**.
-           - Name the deployment
+        * モデルリストから **gpt-4o** を選択し、**確認**を選択します。
+        * デプロイメントに名前を付けます
 
-               ```text
-               gpt-4o
-               ```
+            ```text
+            gpt-4o
+            ```
 
-        - Deployment type: Select **Global Standard**.
-        - Select **Customize**.
-        - Model version: Select **2024-08-06**.
-        - Tokens Per Minute Rate Limit: Select **140k**.
-        - Select **Deploy**.
+        * デプロイメントタイプ：**Global Standard** を選択します。
+        * **カスタマイズ**を選択します。
+        * モデルバージョン：**2024-08-06** を選択します。
+        * 1分あたりのトークン数レート制限：**140k** を選択します。
+        * **デプロイ**を選択します。
 
     !!! note
-        A specific version of GPT-4o may be required depending on your the region where you deployed your project.
-        See [Models: Assistants (Preview)](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#assistants-preview){:target="_blank"} for details.
+        プロジェクトをデプロイしたリージョンによっては、特定のバージョンの GPT-4o が必要になる場合があります。
+        詳細は[モデル: アシスタント (プレビュー)](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#assistants-preview){:target="_blank"}を参照してください。
 
-    ### Workshop Configuration
+    ### ワークショップ構成
 
-    You'll need the project connection string to connect the agent app to the Azure AI Foundry project. You can find this string in the Azure AI Foundry portal in the Overview page for your Project `agent-workshop` (look in the Project details section).
+    エージェントアプリを Azure AI Foundry プロジェクトに接続するには、プロジェクト接続文字列が必要です。この文字列は、Azure AI Foundry ポータルのプロジェクト `agent-workshop` の概要ページ（プロジェクト詳細セクション内）にあります。
 
     === "Python"
 
-        Create the workshop configuration file with the following command:
+        次のコマンドを使用してワークショップ構成ファイルを作成します：
 
         ```bash
         cp src/workshop/.env.sample src/workshop/.env
         ```
 
-        Then edit the file `src/workshop/.env` to provide the Project Connection String.
+        次に、ファイル `src/workshop/.env` を編集して、プロジェクト接続文字列を指定します。
 
     === "C#"
 
-        1. Open a new terminal window in VS Code.
-        2. Run the following command to set the C# project path $CSHARP_PROJECT_PATH variable:
+        1. VS Code で新しいターミナルウィンドウを開きます。
+        2. 次のコマンドを実行して、C# プロジェクトパス $CSHARP_PROJECT_PATH 変数を設定します：
 
             ```bash
             CSHARP_PROJECT_PATH="src/csharp/workshop/AgentWorkshop.Client/AgentWorkshop.Client.csproj"
             ```
-        3. Run the following command to set the [ASP.NET Core safe secret](https://learn.microsoft.com/aspnet/core/security/app-secrets){:target="_blank"} for the project connection string:
+        3. 次のコマンドを実行して、プロジェクト接続文字列の [ASP.NET Core 安全なシークレット](https://learn.microsoft.com/aspnet/core/security/app-secrets){:target="_blank"}を設定します：
 
-            !!! warning "Replace `<your_project_connection_string>` with the actual connection string"
+            !!! warning "`<your_project_connection_string>` を実際の接続文字列に置き換えてください"
 
             ```bash
             dotnet user-secrets set "ProjectConnectionString" "<your_project_connection_string>" --project "$CSHARP_PROJECT_PATH"
             ```
 
-        4. Run the following command to set the [ASP.NET Core safe secret](https://learn.microsoft.com/aspnet/core/security/app-secrets){:target="_blank"} for the model deployment name:
+        4. 次のコマンドを実行して、モデルデプロイメント名の [ASP.NET Core 安全なシークレット](https://learn.microsoft.com/aspnet/core/security/app-secrets){:target="_blank"}を設定します：
 
             ```bash
             dotnet user-secrets set "Azure:ModelName" "gpt-4o" --project "$CSHARP_PROJECT_PATH"
             ```
 
-## Selecting the Language Workspace
+## 言語ワークスペースの選択
 
-There are two workspaces in the workshop, one for Python and one for C#. The workspace contains the source code and all the files needed to complete the labs for each language. Choose the workspace that matches the language you want to work with.
+!!! Info "COGBOT コミュニティより Azure サブスクリプションの情報を提供いただく方は、その情報をもとに .env ファイルを作成します。作成方法は講師が解説します。"
+
+
+
+ワークショップには、Python 用と C# 用の 2 つのワークスペースがあります。ワークスペースには、各言語のラボを完了するために必要なソースコードとすべてのファイルが含まれています。使用したい言語に一致するワークスペースを選択してください。
 
 === "Python"
 
-    1. From the **VS Code menu**, select **File** > **Open Workspace from File**.
-    2. Select the **.vscode/python-workspace.code-workspace** file.
+    1. **VS Code メニュー**から、**ファイル** > **ファイルでワークスペースを開く**を選択します。
+    2. **.vscode/python-workspace.code-workspace** ファイルを選択します。
 
-    ## Project Structure
+    ## プロジェクト構造
 
-    Be sure to familiarize yourself with the key **subfolders** and **files** you’ll be working with throughout the workshop.
+    ワークショップ全体を通して作業する主要な**サブフォルダ**と**ファイル**についてよく理解しておいてください。
 
-    ### The workshop folder
+    ### workshop フォルダ
 
-    - The **main.py** file: The entry point for the app, containing its main logic.
-    - The **sales_data.py** file: The function logic to execute dynamic SQL queries against the SQLite database.
-    - The **stream_event_handler.py** file: Contains the event handler logic for token streaming.
+    * **main.py** ファイル：アプリのエントリポイントで、主要なロジックが含まれています。
+    * **sales_data.py** ファイル：SQLite データベースに対して動的 SQL クエリを実行する関数ロジック。
+    * **stream_event_handler.py** ファイル：トークンストリーミングのイベントハンドラーロジックが含まれています。
 
-    ### The shared folder
+    ### shared フォルダ
 
-    - The **files** folder: Contains the files created by the agent app.
-    - The **fonts** folder: Contains the multilingual fonts used by Code Interpreter.
-    - The **instructions** folder: Contains the instructions passed to the LLM.
+    * **files** フォルダ：エージェントアプリによって作成されたファイルが含まれています。
+    * **fonts** フォルダ：コードインタープリターで使用される多言語フォントが含まれています。
+    * **instructions** フォルダ：LLM に渡される指示が含まれています。
 
-    ![Lab folder structure](../media/project-structure-self-guided-python.png)
+    ![ラボフォルダ構造](../media/project-structure-self-guided-python.png)
 
 === "C#"
 
-    1. From the **VS Code menu**, select **File** > **Open Workspace from File**.
-    2. Select the **.vscode/csharp-workspace.code-workspace** file.
+    1. **VS Code メニュー**から、**ファイル** > **ファイルでワークスペースを開く**を選択します。
+    2. **.vscode/csharp-workspace.code-workspace** ファイルを選択します。
 
-    ## Project Structure
+    ## プロジェクト構造
 
-    Be sure to familiarize yourself with the key **subfolders** and **files** you’ll be working with throughout the workshop.
+    ワークショップ全体を通して作業する主要な**サブフォルダ**と**ファイル**についてよく理解しておいてください。
 
-    ### The workshop folder
+    ### workshop フォルダ
 
-    - The **Lab1.cs, Lab2.cs, Lab3.cs** files: The entry point for each lab, containing its agent logic.
-    - The **Program.cs** file: The entry point for the app, containing its main logic.
-    - The **SalesData.cs** file: The function logic to execute dynamic SQL queries against the SQLite database.
+    * **Lab1.cs, Lab2.cs, Lab3.cs** ファイル：各ラボのエントリポイントで、そのエージェントロジックが含まれています。
+    * **Program.cs** ファイル：アプリのエントリポイントで、主要なロジックが含まれています。
+    * **SalesData.cs** ファイル：SQLite データベースに対して動的 SQL クエリを実行する関数ロジック。
 
-    ### The shared folder
+    ### shared フォルダ
 
-    - The **files** folder: Contains the files created by the agent app.
-    - The **fonts** folder: Contains the multilingual fonts used by Code Interpreter.
-    - The **instructions** folder: Contains the instructions passed to the LLM.
+    * **files** フォルダ：エージェントアプリによって作成されたファイルが含まれています。
+    * **fonts** フォルダ：コードインタープリターで使用される多言語フォントが含まれています。
+    * **instructions** フォルダ：LLM に渡される指示が含まれています。
 
-    ![Lab folder structure](../media/project-structure-self-guided-csharp.png)
+    ![ラボフォルダ構造](../media/project-structure-self-guided-csharp.png)
