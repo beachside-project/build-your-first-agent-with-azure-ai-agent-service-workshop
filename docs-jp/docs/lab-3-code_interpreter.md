@@ -10,7 +10,7 @@ Azure AI Agent Service のコードインタープリターを使用すると、
 
     1. `main.py` を開きます。
 
-    2. Agent 用に新しい指示ファイルを定義します： **"# "** 文字を削除して、次の行の**コメントを解除**します
+    2. Agent 私たちのエージェントのために新しい指示ファイルを定義し、エージェントのツールセットにコードインタープリターを追加します。"#" 文字を削除することにより、以下の行のコメントを解除します。
 
         ```python
         # INSTRUCTIONS_FILE = "instructions/code_interpreter.txt"
@@ -54,14 +54,14 @@ Azure AI Agent Service のコードインタープリターを使用すると、
             code_interpreter = CodeInterpreterTool()
             toolset.add(code_interpreter)
 
-            # コードインタープリターに多言語サポートを追加
-            # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
-            # code_interpreter.add_file(file_id=font_file_info.id)
-
-            # Bing グラウンディングツールを追加
+            # Bing grounding ツールを追加
             # bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
             # bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
             # toolset.add(bing_grounding)
+
+            # コードインタープリターに多言語サポートを追加
+            # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
+            # code_interpreter.add_file(file_id=font_file_info.id)
 
             return font_file_info
         ```
@@ -81,8 +81,8 @@ Azure AI Agent Service のコードインタープリターを使用すると、
 
 ## 指示の確認
 
-1.  **shared/instructions/code_interpreter.txt** ファイルを開きます。このファイルは、前のラボで使用された指示を置き換えます。
-2.  **ツール**セクションには、「視覚化とコード解釈 (Visualization and Code Interpretation)」機能が含まれるようになり、Agent は次のことができるようになります：
+1. **shared/instructions/code_interpreter.txt** ファイルを開きます。このファイルは、前のラボで使用された指示を置き換えます。
+2. **ツール**セクションには、「視覚化とコード解釈 (Visualization and Code Interpretation)」機能が含まれるようになり、Agent は次のことができるようになります：
 
     * コードインタープリターを使用して、LLM が生成した Python コードを実行します。（例：データのダウンロードや視覚化のため）。
     * ユーザーの言語を使用して、ラベル、タイトル、その他のグラフテキストを含むチャートやグラフを作成します。
@@ -90,18 +90,18 @@ Azure AI Agent Service のコードインタープリターを使用すると、
 
 ## Agent App の実行
 
-1.  <kbd>F5</kbd> を押してアプリを実行します。
-2.  ターミナルでアプリが起動し、Agent App から**クエリを入力してください (Enter your query)** というプロンプトが表示されます。
+1. <kbd>F5</kbd> を押してアプリを実行します。
+2. ターミナルでアプリが起動し、Agent App から**クエリを入力してください (Enter your query)** というプロンプトが表示されます。
 
 ### Agent との会話を開始する
 
 これらの質問を試してみてください：
 
-1.  **地域別売上を円グラフで表示して** (または「Show sales by region as a pie chart」など)
+1. **地域別売上を円グラフで表示して** (または「Show sales by region as a pie chart」など)
 
-    タスクが完了すると、円グラフの画像が **shared/files** サブフォルダに保存されます。このサブフォルダは、このタスクが初めて実行されるときに作成され、ソース管理にはチェックインされません。
+    タスクが完了すると、円グラフの画像が **shared/files** サブフォルダーに保存されます。このサブフォルダーは、このタスクがはじめて実行されるときに作成され、ソース管理にはチェックインされません。
 
-    VS Code でフォルダを開き、画像ファイルをクリックして表示します。（ヒント：Codespaces では、Agent が応答で出力するリンクを Control キーを押しながらクリックするとファイルを表示できます。）
+    VS Code でフォルダーを開き、画像ファイルをクリックして表示します。（ヒント：Codespaces では、Agent が応答で出力するリンクを Control キーを押しながらクリックするとファイルを表示できます。）
 
     !!! info
         これは魔法のように感じるかもしれませんが、舞台裏では何が起こってすべてが機能しているのでしょうか？
@@ -116,21 +116,30 @@ Azure AI Agent Service のコードインタープリターを使用すると、
         3. 返されたデータを使用して、LLM は円グラフを作成するための Python コードを記述します。
         4. 最後に、コードインタープリターが Python コードを実行してグラフを生成します。
 
-2.  **地域別売上データをダウンロードして** (または「Download the sales by region data」など)
+2. **地域別売上データをダウンロードして** (または「Download the sales by region data」など)
 
-    タスクが完了したら、**shared/files** フォルダを確認してダウンロードされたファイルを確認します。
+    タスクが完了したら、**shared/files** フォルダーを確認してダウンロードされたファイルを確認します。
 
     !!! info
         デフォルトでは、指示はデータが CSV 形式でダウンロードされることを指定しています。クエリに希望の形式を含めることで、JSON や Excel などの他の形式をリクエストできます（例：「JSON としてダウンロード」）。
 
-3.  **Download as JSON** (または「JSON としてダウンロード」など)
+3. **Download as JSON** (または「JSON としてダウンロード」など)
 
-    タスクが完了したら、**shared/files** フォルダを確認してダウンロードされたファイルを確認します。
+    タスクが完了したら、**shared/files** フォルダーを確認してダウンロードされたファイルを確認します。
 
     !!! info
         明示的に指定しなかったにもかかわらず、Agent は会話から作成したいファイルを推測しました。
 
-4.  Contoso の売上データについて質問を続け、コードインタープリターの動作を確認します。
+4. Contoso の売上データについて質問を続け、コードインタープリターの動作を確認します。
+
+## コードインタープリターのデバッグ
+
+コードインタープリターを直接デバッグすることはできませんが、エージェントに生成したコードを表示するように依頼することでその挙動についての洞察を得ることができます。これは、Agent が指示をどのように解釈するかを理解し、それらを改善する際に役立ちます。
+
+ターミナルで以下を入力します。
+
+1. **show code** (コードを表示して) と入力して、コードインタープリターによって生成された直前の操作に対するコードを確認します。
+
 
 ## Agent App の停止
 
