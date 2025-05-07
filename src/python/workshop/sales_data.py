@@ -102,10 +102,10 @@ class SalesData:
 
     async def async_fetch_sales_data_using_sqlite_query(self: "SalesData", sqlite_query: str) -> str:
         """
-        This function is used to answer user questions about Contoso sales data by executing SQLite queries against the database.
+        この関数は、データベースに対して SQLite クエリを実行することにより、Contoso の売上データに関するユーザーの質問に答えるために使用されます。
 
-        :param sqlite_query: The input should be a well-formed SQLite query to extract information based on the user's question. The query result will be returned as a JSON object.
-        :return: Return data in JSON serializable format.
+        :param sqlite_query: 入力は、ユーザーの質問に基づいて情報を抽出するための、整ったフォーマットの SQLite クエリである必要があります。クエリ結果は JSON オブジェクトとして返されます。
+        :return: JSON シリアライズ可能な形式でデータを返します。
         :rtype: str
         """
 
