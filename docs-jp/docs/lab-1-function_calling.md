@@ -55,6 +55,7 @@ Function calling により、大規模言語モデルは外部システムと対
 ### 動的な SQL 生成
 
 アプリが起動すると、データベーススキーマと主要なデータを Azure AI Agent Service の指示に組み込みます。この入力を使用して、LLM は自然言語で表現されたユーザーのリクエストに応答するために、SQLite 互換の SQL クエリを生成します。
+
 ## ラボ演習
 
 このラボでは、SQLite データベースに対して動的 SQL クエリを実行する関数ロジックを有効にします。この関数は、Contoso の売上データに関するユーザーの質問に答えるために LLM によって呼び出されます。
@@ -63,7 +64,7 @@ Function calling により、大規模言語モデルは外部システムと対
 
     1. `main.py` を開きます。
 
-    2. **"# "** 文字を削除して、次の行の**コメントを解除**します
+    2. **"# "** 文字を削除して、次の行の**コメントを解除**します。
 
         ```python
         # INSTRUCTIONS_FILE = "instructions/instructions_function_calling.txt"
@@ -72,25 +73,25 @@ Function calling により、大規模言語モデルは外部システムと対
         ```
 
         !!! warning
-            コメント解除する行は隣接していません。# 文字を削除する際は、その後のスペースも削除するようにしてください。
+            コメント解除する行は隣接していません。#文字を削除する際は、それに続くスペースも忘れずに削除してください。選択したコードセクションをより素早くコメント解除するには、ショートカット CTRL-K + CTRL-U を使用するとよいでしょう。
 
     3. main.py のコードを確認します。
 
         コメント解除後、コードは次のようになります：
 
         ``` python
-        INSTRUCTIONS_FILE = "instructions/function_calling.txt"
+        # INSTRUCTIONS_FILE = "instructions/function_calling.txt"
         # INSTRUCTIONS_FILE = "instructions/file_search.txt"
         # INSTRUCTIONS_FILE = "instructions/code_interpreter.txt"
-        # INSTRUCTIONS_FILE = "instructions/code_interpreter_multilingual.txt"
         # INSTRUCTIONS_FILE = "instructions/bing_grounding.txt"
+        # INSTRUCTIONS_FILE = "instructions/code_interpreter_multilingual.txt"
 
 
         async def add_agent_tools() -> None:
             """Add tools for the agent."""
             font_file_info = None
 
-            # Add the functions tool
+            # functions tool の追加
             toolset.add(functions)
 
             # テントのデータシートを新しいベクトルデータストアに追加
@@ -106,14 +107,14 @@ Function calling により、大規模言語モデルは外部システムと対
             # code_interpreter = CodeInterpreterTool()
             # toolset.add(code_interpreter)
 
-            # コードインタープリターに多言語サポートを追加
-            # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
-            # code_interpreter.add_file(file_id=font_file_info.id)
-
             # Bing grounding ツールを追加
             # bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
             # bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
             # toolset.add(bing_grounding)
+
+            # コードインタープリターに多言語サポートを追加
+            # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
+            # code_interpreter.add_file(file_id=font_file_info.id)
 
             return font_file_info
         ```
@@ -169,8 +170,8 @@ Function calling により、大規模言語モデルは外部システムと対
 
 ## Agent App の実行
 
-1.  <kbd>F5</kbd> を押してアプリを実行します。
-2.  ターミナルにアプリの起動が表示され、エージェントアプリから**クエリを入力してください (Enter your query)** というプロンプトが表示されます。
+1. <kbd>F5</kbd> を押してアプリを実行します。
+2. ターミナルにアプリの起動が表示され、エージェントアプリから**クエリを入力してください (Enter your query)** というプロンプトが表示されます。
 
     ![Agent App](./media/run-the-agent.png){:width="600"}
 
@@ -178,7 +179,7 @@ Function calling により、大規模言語モデルは外部システムと対
 
 Contoso の売上データに関する質問を始めてください。例：
 
-1.  **何ができますか**
+1. **何ができますか**
 
     **何ができますか** クエリに対する LLM の応答例です：
 
@@ -194,7 +195,7 @@ Contoso の売上データに関する質問を始めてください。例：
     !!! tip
         LLM は、指示ファイルで定義された開始用の質問リストを提供します。あなたの言語で助けを求めてみてください。例えば、`help in Hindi`、`help in Italian`、`help in Korean` のように。
 
-2.  **最新の取引詳細を3件表示して**
+2. **最新の取引詳細を3件表示して**
 
     応答では、SQLite データベースに保存されている生データを確認できます。各レコードは Contoso の単一の販売トランザクションであり、製品、製品カテゴリ、販売額と地域、日付などの情報が含まれています。
 
@@ -203,7 +204,7 @@ Contoso の売上データに関する質問を始めてください。例：
 
         大規模言語モデルは非決定的な動作をするため、同じクエリを繰り返しても異なる応答を返すことがあります。
 
-3.  **地域別の売上は**
+3. **地域別の売上は**
 
     **地域別の売上は** クエリに対する LLM の応答例です：
 
@@ -229,16 +230,20 @@ Contoso の売上データに関する質問を始めてください。例：
         2. 次に LLM はエージェントアプリに **async_fetch_sales_data_using_sqlite_query** 関数を呼び出すよう要求します。この関数は SQLite データベースから必要なデータを取得し、LLM に返します。
         3. LLM は取得したデータを使用して Markdown テーブルを作成し、それをユーザーに返します。指示ファイルを確認すると、Markdown がデフォルトの出力形式であることがわかります。
 
-4.  **ヨーロッパでのカテゴリ別売上を表示して**
+4. **ヨーロッパでのカテゴリ別売上を表示して**
 
     この場合、さらに複雑な SQL クエリがエージェントアプリによって実行されます。
 
-5.  **footwear の売り上げの内訳を教えて**
+5. **footwear の売り上げの内訳を教えて**
 
     エージェントがどの製品が「footwear (履物)」カテゴリに該当するかを把握し、「**内訳 (breakout)**」という用語の背後にある意図を理解していることに注目してください。
 
-6.  **地域別売上を円グラフで表示して**
-    私たちのエージェントはまだグラフを作成できません。これは次のラボで修正します。
+6. **当社ではどのようなブランドのテントを取り扱っていますか？**
+
+!!! info
+    製品ブランドに関する情報を含むデータをエージェントに提供していません。そのため、エージェントはこの質問に適切に回答できません。
+
+    以前の応答で、基になるデータベースからのトランザクション履歴にも製品ブランドや説明が含まれていなかったことに気づかれたかもしれません。次のラボでこれを修正します！
 
 ## (オプション) アプリのデバッグ
 
@@ -254,8 +259,8 @@ Contoso の売上データに関する質問を始めてください。例：
 
 これらの質問を試してみてください：
 
-1.  **最も売上が高い地域は?**
-2.  **2022年4月のアメリカでのテントの売上は?**
+1. **最も売上が高い地域は?**
+2. **2022年4月のアメリカでのテントの売上は?**
 
 ### ブレークポイントの無効化
 
