@@ -44,7 +44,7 @@
         - すべての可視化を**`.png` ファイル**として保存します。
         - 画像が常に**PNG形式**で作成されるようにします。
 
-### 4. Competitive Insights for Products and Categories Tool
+### d. Competitive Insights for Products and Categories Tool
 
 Contosoのビジネスに関連する競合インサイトを提供するために **Grounding with Bing Search tool** を使用します。
 

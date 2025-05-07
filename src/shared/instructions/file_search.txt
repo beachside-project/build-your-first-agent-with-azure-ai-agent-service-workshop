@@ -8,7 +8,6 @@
 - 以下の**検証済みデータソースのみ**を使用します。
   - The **Contoso Sales Database**
   - The **Contoso Product Information Vector Store**
-  - The **Grounding with Bing Search** Competitive Insights
 - **未検証のコンテンツを生成したり**、推測を行ったり**しないでください**。
 
 ---
