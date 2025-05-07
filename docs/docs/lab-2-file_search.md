@@ -20,7 +20,7 @@ A [vector store](https://en.wikipedia.org/wiki/Vector_database){:target="_blank"
 
       1. Open the file `main.py`.
 
-      2. **Uncomment** the following lines by removing the **"# "** characters
+      2. **Uncomment** the following lines by removing the **"# "** characters. 
 
         ```python
         # INSTRUCTIONS_FILE = "instructions/file_search.txt"
@@ -98,6 +98,11 @@ A [vector store](https://en.wikipedia.org/wiki/Vector_database){:target="_blank"
 
     If you are comfortable using the VS Code debugger, then set a [breakpoint](https://code.visualstudio.com/Docs/editor/debugging){:target="_blank"} in the **create_vector_store** function to observe how the vector store is created.
 
+2. Open the **shared/instructions/file_search.txt** file.
+    
+    Review the updates in the **Tools** section of the instructions file compared with the one we have used in the previous step.
+
+
 ## Run the Agent App
 
 1. Press <kbd>F5</kbd> to run the app.
@@ -107,19 +112,17 @@ A [vector store](https://en.wikipedia.org/wiki/Vector_database){:target="_blank"
 
 The following conversation uses data from both the Contoso sales database and the uploaded Tents Data Sheet, so the results will vary depending on the query.
 
-1. **What brands of hiking shoes do we sell?**
-
-    !!! info
-        We haven't provided the agent with any files containing information about hiking shoes.
-
-        In the first lab you may have noticed that the transaction history from the underlying database did not include any product brands or descriptions, either.
-
 1. **What brands of tents do we sell?**
 
     The agent responds with a list of distinct tent brands mentioned in the Tents Data Sheet.
 
     !!! info
-        The agent can now reference the provided data sheet to access details such as brand, description, product type, and category, and relate this data back to the Contoso sales database.
+        Observe how the agent's behavior changed with respect to the previous lab. The agent can now reference the provided data sheet to access details such as brand, description, product type, and category, and relate this data back to the Contoso sales database.
+
+1. **What brands of hiking shoes do we sell?**
+
+    !!! info
+        We haven't provided the agent with any files containing information about hiking shoes. Observe how the agent handles a question about information that it cannot retrieve from its vector store.
 
 1. **What product type and categories are these brands associated with?**
 
@@ -128,7 +131,8 @@ The following conversation uses data from both the Contoso sales database and th
 1. **What were the sales of tents in 2024 by product type? Include the brands associated with each.**
 
     !!! info
-        It's possible the agent might get this wrong, and suggest incorrectly that AlpineGear has a Family Camping tent. To address this, you could provide further context in the instructions or the datasheet, or provide context to the agent directly as in next prompt.
+        It's possible the agent might get this wrong, and suggest incorrectly that AlpineGear has a Family Camping tent. To address this, you could provide further context in the instructions or the datasheet, or provide context to the agent directly as in next prompt. For example, try the following:
+        "**Contoso does not sell Family Camping tents from AlpineGear. Try again.**"
 
 1. **What were the sales of AlpineGear in 2024 by region?**
 
@@ -138,9 +142,9 @@ The following conversation uses data from both the Contoso sales database and th
         The agent interprets this as a request to find all sales of tents in the "CAMPING & HIKING' category, since it
         now has access to information that Alpine Gear is a brand of backpacking tent.
 
-1. **Contoso does not sell Family Camping tents from AlpineGear. Try again.**
+1. **Show sales by region as a pie chart**
 
-    That's better!
+    Our agent can't create charts ... yet. We'll fix that in the next lab.
 
 ## Stop the Agent App
 

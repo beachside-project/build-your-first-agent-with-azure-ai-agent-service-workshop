@@ -171,10 +171,10 @@ We have provided a bash script to automate the deployment of the resources requi
         Create the workshop configuration file with the following command:
 
         ```bash
-        cp src/workshop/.env.sample src/workshop/.env
+        cp src/python/workshop/.env.sample src/python/workshop/.env
         ```
 
-        Then edit the file `src/workshop/.env` to provide the Project Connection String.
+        Then edit the file `src/python/workshop/.env` to provide the Project Connection String.
 
     === "C#"
 
@@ -189,7 +189,7 @@ We have provided a bash script to automate the deployment of the resources requi
             !!! warning "Replace `<your_project_connection_string>` with the actual connection string"
 
             ```bash
-            dotnet user-secrets set "ProjectConnectionString" "<your_project_connection_string>" --project "$CSHARP_PROJECT_PATH"
+            dotnet user-secrets set "ConnectionStrings:AiAgentService" "<your_project_connection_string>" --project "$CSHARP_PROJECT_PATH"
             ```
 
         4. Run the following command to set the [ASP.NET Core safe secret](https://learn.microsoft.com/aspnet/core/security/app-secrets){:target="_blank"} for the model deployment name:
@@ -204,12 +204,18 @@ There are two workspaces in the workshop, one for Python and one for C#. The wor
 
 === "Python"
 
-    1. From the **VS Code menu**, select **File** > **Open Workspace from File**.
-    2. Select the **.vscode/python-workspace.code-workspace** file.
+    1. In Visual Studio Code, go to **File** > **Open Workspace from File**.
+    2. Replace the default path with the following:
+    
+        ```text
+        /workspaces/build-your-first-agent-with-azure-ai-agent-service-workshop/.vscode/
+        ```
+
+	3. Choose the file named **python-workspace.code-workspace** to open the workspace.
 
     ## Project Structure
 
-    Be sure to familiarize yourself with the key **subfolders** and **files** you’ll be working with throughout the workshop.
+    Be sure to familiarize yourself with the key **folders** and **files** you’ll be working with throughout the workshop.
 
     ### The workshop folder
 
@@ -227,12 +233,18 @@ There are two workspaces in the workshop, one for Python and one for C#. The wor
 
 === "C#"
 
-    1. From the **VS Code menu**, select **File** > **Open Workspace from File**.
-    2. Select the **.vscode/csharp-workspace.code-workspace** file.
+    1. In Visual Studio Code, go to **File** > **Open Workspace from File**.
+    2. Replace the default path with the following:
+    
+        ```text
+        /workspaces/build-your-first-agent-with-azure-ai-agent-service-workshop/.vscode/
+        ```
+
+	3. Choose the file named **csharp-workspace.code-workspace** to open the workspace.
 
     ## Project Structure
 
-    Be sure to familiarize yourself with the key **subfolders** and **files** you’ll be working with throughout the workshop.
+    Be sure to familiarize yourself with the key **folders** and **files** you’ll be working with throughout the workshop.
 
     ### The workshop folder
 

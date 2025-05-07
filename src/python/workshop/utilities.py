@@ -38,6 +38,8 @@ class Utilities:
         attachment_part = attachment_name.split(":")[-1]
         file_name = Path(attachment_part).stem
         file_extension = Path(attachment_part).suffix
+        if not file_extension:
+            file_extension = ".png"
         file_name = f"{file_name}.{file_id}{file_extension}"
 
         folder_path = Path(self.shared_files_path) / "files"

@@ -73,7 +73,7 @@ In this lab, you will enable the function logic to execute dynamic SQL queries a
         ```
 
         !!! warning
-            The lines to be uncommented are not adjacent. When removing the # character, ensure you also delete the space that follows it.
+            The lines to be uncommented are not adjacent. When removing the # character, ensure you also delete the space that follows it. You might want to use the shortcut **CTRL-K + CTRL-U** to uncomment a selected code section quicker.  
 
     3. Review the Code in main.py.
 
@@ -239,9 +239,12 @@ Start asking questions about Contoso sales data. For example:
 
     Notice how the agent figures out which products fit under the "footwear" category and understands the intent behind the term "**breakout**".
 
-6. **Show sales by region as a pie chart**
+6. **What brands of tents do we sell?**
 
-    Our agent can't create charts ... yet. We'll fix that in the next lab.
+    !!! info
+        We haven't provided the agent with any data containing information about product brands. That's why the agent isn't able to properly answer this question.
+
+        In the previous responses you may have noticed that the transaction history from the underlying database did not include any product brands or descriptions, either. We'll fix this in the next lab!
 
 ## (Optional) Debug the App
 

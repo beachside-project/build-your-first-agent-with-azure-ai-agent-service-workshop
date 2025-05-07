@@ -59,15 +59,15 @@ functions = AsyncFunctionTool(
 # INSTRUCTIONS_FILE = "instructions/function_calling.txt"
 # INSTRUCTIONS_FILE = "instructions/file_search.txt"
 # INSTRUCTIONS_FILE = "instructions/code_interpreter.txt"
-# INSTRUCTIONS_FILE = "instructions/code_interpreter_multilingual.txt"
 # INSTRUCTIONS_FILE = "instructions/bing_grounding.txt"
+# INSTRUCTIONS_FILE = "instructions/code_interpreter_multilingual.txt"
 
 
 async def add_agent_tools() -> None:
     """Add tools for the agent."""
     font_file_info = None
 
-    # Add the functions tool
+    # functions tool の追加
     # toolset.add(functions)
 
     # テントのデータシートを新しいベクトルデータストアに追加
@@ -83,14 +83,14 @@ async def add_agent_tools() -> None:
     # code_interpreter = CodeInterpreterTool()
     # toolset.add(code_interpreter)
 
-    # コードインタープリターに多言語サポートを追加
-    # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
-    # code_interpreter.add_file(file_id=font_file_info.id)
-
     # Bing grounding ツールを追加
     # bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
     # bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
     # toolset.add(bing_grounding)
+
+    # コードインタープリターに多言語サポートを追加
+    # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
+    # code_interpreter.add_file(file_id=font_file_info.id)
 
     return font_file_info
 
@@ -178,34 +178,35 @@ async def main() -> None:
     """
     Example questions: Sales by region, top-selling products, total shipping costs by region, show as a pie chart.
     """
-    agent, thread = await initialize()
-    if not agent or not thread:
-        print(f"{tc.BG_BRIGHT_RED}Initialization failed. Ensure you have uncommented the instructions file for the lab.{tc.RESET}")
-        print("Exiting...")
-        return
+    async with project_client:
+        agent, thread = await initialize()
+        if not agent or not thread:
+            print(f"{tc.BG_BRIGHT_RED}Initialization failed. Ensure you have uncommented the instructions file for the lab.{tc.RESET}")
+            print("Exiting...")
+            return
 
-    cmd = None
+        cmd = None
 
-    while True:
-        prompt = input(
-            f"\n\n{tc.GREEN}Enter your query (type exit or save to finish): {tc.RESET}").strip()
-        if not prompt:
-            continue
+        while True:
+            prompt = input(
+                f"\n\n{tc.GREEN}Enter your query (type exit or save to finish): {tc.RESET}").strip()
+            if not prompt:
+                continue
 
-        cmd = prompt.lower()
-        if cmd in {"exit", "save"}:
-            break
+            cmd = prompt.lower()
+            if cmd in {"exit", "save"}:
+                break
 
-        await post_message(agent=agent, thread_id=thread.id, content=prompt, thread=thread)
+            await post_message(agent=agent, thread_id=thread.id, content=prompt, thread=thread)
 
-    if cmd == "save":
-        print("The agent has not been deleted, so you can continue experimenting with it in the Azure AI Foundry.")
-        print(
-            f"Navigate to https://ai.azure.com, select your project, then playgrounds, agents playgound, then select agent id: {agent.id}"
-        )
-    else:
-        await cleanup(agent, thread)
-        print("The agent resources have been cleaned up.")
+        if cmd == "save":
+            print("The agent has not been deleted, so you can continue experimenting with it in the Azure AI Foundry.")
+            print(
+                f"Navigate to https://ai.azure.com, select your project, then playgrounds, agents playgound, then select agent id: {agent.id}"
+            )
+        else:
+            await cleanup(agent, thread)
+            print("The agent resources have been cleaned up.")
 
 
 if __name__ == "__main__":
