@@ -84,13 +84,13 @@
 === "C#"
 
     1. `Program.cs` ファイルを開きます。
-    2. ラボの作成を `Lab3` クラスを使用するように**更新**します。
+    2. `Lab` の作成を `Lab2` クラスを使用するように**更新**します。
 
         ```csharp
         await using Lab lab = new Lab2(projectClient, apiDeploymentName);
         ```
 
-    3. `Lab3.cs` クラスを確認し、`InitialiseLabAsync` が PDF をベクトルストアに追加しファイル検索ツールを Agent に追加するためにどのように使用され、`InitialiseToolResources` がファイル検索ツールを Agent に追加するためにどのように使用されるかを確認します。これらのメソッドは、プロセスを観察するためにブレークポイントを追加するのに適した場所です。
+    3. `Lab2.cs` クラスを確認し、`InitialiseLabAsync` が PDF をベクトルストアに追加しファイル検索ツールを Agent に追加するためにどのように使用され、`InitialiseToolResources` がファイル検索ツールを Agent に追加するためにどのように使用されるかを確認します。これらのメソッドは、プロセスを観察するためにブレークポイントを追加するのに適した場所です。
 
 ## 関数の確認
 

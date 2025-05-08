@@ -70,19 +70,19 @@ Azure AI Agent Service のコードインタープリターを使用すると、
 
     1. `Program.cs` ファイルを開きます。
 
-    2. ラボの作成を `Lab2` クラスを使用するように**更新**します。
+    2. ラボの作成を `Lab3` クラスを使用するように**更新**します。
 
         ``` csharp
         await using Lab lab = new Lab3(projectClient, apiDeploymentName);
         ```
 
-    3. `Lab2.cs` クラスを確認し、コードインタープリターがツールリストにどのように追加されるかを確認します。
+    3. `Lab3.cs` クラスを確認し、コードインタープリターがツールリストにどのように追加されるかを確認します。
 
 
 ## 指示の確認
 
 1. **shared/instructions/code_interpreter.txt** ファイルを開きます。このファイルは、前のラボで使用された指示を置き換えます。
-2. **ツール**セクションには、「視覚化とコード解釈 (Visualization and Code Interpretation)」機能が含まれるようになり、Agent は次のことができるようになります：
+2. *2. Tools & Data Access** セクションには、「Visualization and Code Interpretation Tool」機能が含まれるようになり、Agent は次のことができるようになります：
 
     * コードインタープリターを使用して、LLM が生成した Python コードを実行します。（例：データのダウンロードや視覚化のため）。
     * ユーザーの言語を使用して、ラベル、タイトル、その他のグラフテキストを含むチャートやグラフを作成します。
