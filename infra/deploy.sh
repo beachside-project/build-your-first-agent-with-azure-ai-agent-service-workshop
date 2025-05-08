@@ -43,7 +43,7 @@ if [ -f output.json ]; then
     HOST_NAME=$(echo "$DISCOVERY_URL" | sed -e 's|^https://||' -e 's|/discovery$||')
 
     # Generate the PROJECT_CONNECTION_STRING
-    PROJECT_CONNECTION_STRING="\"$HOST_NAME;$SUBSCRIPTION_ID;$RESOURCE_GROUP_NAME;$AI_PROJECT_NAME\""
+    PROJECT_CONNECTION_STRING="$HOST_NAME;$SUBSCRIPTION_ID;$RESOURCE_GROUP_NAME;$AI_PROJECT_NAME"
 
     ENV_FILE_PATH="../src/python/workshop/.env"
 
