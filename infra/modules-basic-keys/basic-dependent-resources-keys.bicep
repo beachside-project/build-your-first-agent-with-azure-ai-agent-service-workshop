@@ -8,22 +8,22 @@ param tags object = {}
 param aiServicesName string
 
 @description('Model name for deployment')
-param modelName string 
+param modelName string
 
 @description('Model format for deployment')
-param modelFormat string 
+param modelFormat string
 
 @description('Model version for deployment')
-param modelVersion string 
+param modelVersion string
 
 @description('Model deployment SKU name')
-param modelSkuName string 
+param modelSkuName string
 
 @description('Model deployment capacity')
-param modelCapacity int 
+param modelCapacity int
 
 @description('Model/AI Resource deployment location')
-param modelLocation string 
+param modelLocation string
 
 resource aiServices 'Microsoft.CognitiveServices/accounts@2024-10-01' = {
   name: aiServicesName
@@ -37,22 +37,19 @@ resource aiServices 'Microsoft.CognitiveServices/accounts@2024-10-01' = {
   }
   properties: {
     customSubDomainName: toLower('${toLower(aiServicesName)}')
-    apiProperties: {
-      statisticsEnabled: false
-    }
     publicNetworkAccess: 'Enabled'
   }
 }
 
-resource modelDeployment 'Microsoft.CognitiveServices/accounts/deployments@2024-10-01'= {
+resource modelDeployment 'Microsoft.CognitiveServices/accounts/deployments@2024-10-01' = {
   parent: aiServices
   name: modelName
-  sku : {
+  sku: {
     capacity: modelCapacity
     name: modelSkuName
   }
   properties: {
-    model:{
+    model: {
       name: modelName
       format: modelFormat
       version: modelVersion
@@ -73,7 +70,6 @@ param storageName string
   'Premium_LRS'
   'Premium_ZRS'
 ])
-
 @description('Storage SKU')
 param storageSkuName string = 'Standard_LRS'
 
