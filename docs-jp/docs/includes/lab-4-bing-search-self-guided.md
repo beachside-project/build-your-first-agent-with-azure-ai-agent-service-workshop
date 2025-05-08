@@ -177,7 +177,7 @@ Agent は Contoso 売上データベース、テントデータシート、お�
 Azure AI Foundry には、Agentアプリと対話し、さまざまなクエリに対する応答をテストできるプレイグラウンドが含まれています。このプレイグラウンドは完全なチャットボット体験ではなく、テストツールであることに注意してください。また、Contoso 売上データベースリソースはローカルでのみ利用可能なため、リアルタイムアクセスはできません。
 
 1. ブラウザから [Azure AI Foundry ポータル](https://ai.azure.com/){:target="_blank"} に移動します。
-2. 左側のナビゲーションから **Playgrounds** を選択します。
+2. 今回作成した AI Project で、左側のナビゲーションから **Playgrounds** を選択します。
 3. **Try the Agents playground** を選択します。
 4. 先ほどコピーした**Agent ID** を **Agent id** フィールドに貼り付けます。
 

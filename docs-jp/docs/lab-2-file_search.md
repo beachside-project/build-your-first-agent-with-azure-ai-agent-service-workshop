@@ -98,6 +98,9 @@
 
     VS Code デバッガーの使用に慣れている場合は、**create_vector_store** 関数に[ブレークポイント](https://code.visualstudio.com/Docs/editor/debugging){:target="_blank"}を設定して、ベクトルストアがどのように作成されるかを観察します。
 
+2. **shared/instructions/file_search.txt** ファイルを開きます。"2. Tools & Data Access" セクションで更新されている内容を、前のステップで使用したものと比較して確認してみましょう。
+  
+
 ## Agent App の実行
 
 1. <kbd>F5</kbd> を押してアプリを実行します。
