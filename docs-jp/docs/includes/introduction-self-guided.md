@@ -10,8 +10,8 @@
 
 - GitHub アカウントが必要です。お持ちでない場合は、[こちらの GitHub 公式ページ](https://github.com/join){:target="_blank"}で作成してください。
 - Azure サブスクリプションへのアクセス。Azure サブスクリプションをお持ちでない場合は以下どちらかをお選びください。
-    - **COGBOT コミュニティより Azure AI Fundory を利用するためのキーなどを提供していただく**。
-    - [Azure の無料アカウント](https://azure.microsoft.com/free/){:target="_blank"}を作成する。
+  - **COGBOT コミュニティより Azure AI Fundory を利用するためのキーなどを提供していただく**。
+  - [Azure の無料アカウント](https://azure.microsoft.com/free/){:target="_blank"}を作成する。
 
 
 ## ワークショップのプログラミング言語を選択
@@ -40,7 +40,7 @@
     !!! Warning "Codespace のビルドには数分かかります。ビルド中に指示を読み進めることができます。"
 
 === "VS Code Dev Container"
-    
+
     ローカル環境でのトラブルが発生すると、ワークショップが全く進行できずタイムアップになる可能性があるため、ローカルで VS Code から Dev Container の利用に精通している方のみが利用してください。
 
     !!! warning "Apple Silicon ユーザー"
@@ -92,10 +92,10 @@ Agent App が Azure AI Agents Service とモデルにアクセスできるよう
 
 以下のリソースが、Azure サブスクリプションの `rg-contoso-agent-workshop` リソースグループに作成されます。
 
-* **agent-wksp** という名前の **Azure AI Foundry Hub**
-* **Agent Service Workshop** という名前の **Azure AI Foundry project**
-* **gpt-4o (Global 2024-08-06)** という名前の **サーバーレス (従量課金制) GPT-4o モデルのデプロイメント**。価格の詳細はこちら[こちら](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/){:target="_blank"}。
-* **Grounding with Bing Search** というリソース。[ドキュメント](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding)と[価格](https://www.microsoft.com/en-us/bing/apis/grounding-pricing){:target="_blank"}で詳細をご覧ください。
+- **agent-wksp** という名前の **Azure AI Foundry Hub**
+- **Agent Service Workshop** という名前の **Azure AI Foundry project**
+- **gpt-4o (Global 2024-08-06)** という名前の **サーバーレス (従量課金制) GPT-4o モデルのデプロイメント**。価格の詳細はこちら[こちら](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/){:target="_blank"}。
+- **Grounding with Bing Search** というリソース。[ドキュメント](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/bing-grounding)と[価格](https://www.microsoft.com/en-us/bing/apis/grounding-pricing){:target="_blank"}で詳細をご覧ください。
 
 !!! warning "gpt-4o Global Standard SKU で 140K TPM のクォータ可用性が必要です。これは、エージェントが大量のトークンを使用するためではなく、エージェントがモデルに対して行う呼び出しの頻度のためです。[AI Foundry Management Center](https://ai.azure.com/managementCenter/quota){:target="_blank"}でクォータの可用性を確認してください。"
 
@@ -200,7 +200,7 @@ Agent App が Azure AI Agents Service とモデルにアクセスできるよう
             !!! warning "`<your_project_connection_string>` を実際の接続文字列に置き換えてください"
 
             ```bash
-            dotnet user-secrets set "ProjectConnectionString" "<your_project_connection_string>" --project "$CSHARP_PROJECT_PATH"
+            dotnet user-secrets set "ConnectionStrings:AiAgentService" "<your_project_connection_string>" --project "$CSHARP_PROJECT_PATH"
             ```
 
         4. 次のコマンドを実行して、モデルデプロイメント名の [ASP.NET Core 安全なシークレット](https://learn.microsoft.com/aspnet/core/security/app-secrets){:target="_blank"}を設定します：

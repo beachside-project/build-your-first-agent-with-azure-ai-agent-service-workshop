@@ -12,15 +12,15 @@
 
 ## ラボ演習
 
-1.  VS Code から **shared/datasheet/contoso-tents-datasheet.pdf** ファイルを開きます。この PDF ファイルには、Contoso が販売するテントの詳細な製品説明が含まれています。
+1. VS Code から **shared/datasheet/contoso-tents-datasheet.pdf** ファイルを開きます。この PDF ファイルには、Contoso が販売するテントの詳細な製品説明が含まれています。
 
-2.  Agent の応答をグラウンディングするために使用されるため、ファイルの内容を**確認**して、含まれる情報を理解します。
+2. Agent の応答をグラウンディングするために使用されるため、ファイルの内容を**確認**して、含まれる情報を理解します。
 
 === "Python"
 
       1. `main.py` ファイルを開きます。
 
-      2. **"# "** 文字を削除して、次の行の**コメントを解除**します
+      2. **"# "** 文字を削除して、次の行の**コメントを解除**します。
 
           ```python
           # INSTRUCTIONS_FILE = "instructions/file_search.txt"
@@ -65,81 +65,87 @@
               file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])
               toolset.add(file_search_tool)
 
-              # コードインタープリターツールを追加
-              # code_interpreter = CodeInterpreterTool()
-              # toolset.add(code_interpreter)
+            # コードインタープリターツールを追加
+            # code_interpreter = CodeInterpreterTool()
+            # toolset.add(code_interpreter)
 
-              # コードインタープリターに多言語サポートを追加
-              # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
-              # code_interpreter.add_file(file_id=font_file_info.id)
+            # Bing grounding ツールを追加
+            # bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
+            # bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
+            # toolset.add(bing_grounding)
 
-              # Bing グラウンディングツールを追加
-              # bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)
-              # bing_grounding = BingGroundingTool(connection_id=bing_connection.id)
-              # toolset.add(bing_grounding)
+            # コードインタープリターに多言語サポートを追加
+            # font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)
+            # code_interpreter.add_file(file_id=font_file_info.id)
 
-              return font_file_info
+            return font_file_info
           ```
 
 === "C#"
 
     1. `Program.cs` ファイルを開きます。
-    2. ラボの作成を `Lab3` クラスを使用するように**更新**します。
+    2. `Lab` の作成を `Lab2` クラスを使用するように**更新**します。
 
         ```csharp
         await using Lab lab = new Lab2(projectClient, apiDeploymentName);
         ```
 
-    3. `Lab3.cs` クラスを確認し、`InitialiseLabAsync` が PDF をベクトルストアに追加しファイル検索ツールを Agent に追加するためにどのように使用され、`InitialiseToolResources` がファイル検索ツールを Agent に追加するためにどのように使用されるかを確認します。これらのメソッドは、プロセスを観察するためにブレークポイントを追加するのに適した場所です。
+    3. `Lab2.cs` クラスを確認し、`InitialiseLabAsync` が PDF をベクトルストアに追加しファイル検索ツールを Agent に追加するためにどのように使用され、`InitialiseToolResources` がファイル検索ツールを Agent に追加するためにどのように使用されるかを確認します。これらのメソッドは、プロセスを観察するためにブレークポイントを追加するのに適した場所です。
 
 ## 関数の確認
 
-1.  **utilities.py** ファイル内の **create_vector_store** 関数を確認します。`create_vector_store` 関数は、テントのデータシートをアップロードし、ベクトルストアに保存します。
+1. **utilities.py** ファイル内の **create_vector_store** 関数を確認します。`create_vector_store` 関数は、テントのデータシートをアップロードし、ベクトルストアに保存します。
 
     VS Code デバッガーの使用に慣れている場合は、**create_vector_store** 関数に[ブレークポイント](https://code.visualstudio.com/Docs/editor/debugging){:target="_blank"}を設定して、ベクトルストアがどのように作成されるかを観察します。
 
+2. **shared/instructions/file_search.txt** ファイルを開きます。"2. Tools & Data Access" セクションで更新されている内容を、前のステップで使用したものと比較して確認してみましょう。
+  
+
 ## Agent App の実行
 
-1.  <kbd>F5</kbd> を押してアプリを実行します。
-2.  ターミナルにアプリの起動が表示され、Agent App から**クエリを入力してください (Enter your query)** というプロンプトが表示されます。
+1. <kbd>F5</kbd> を押してアプリを実行します。
+2. ターミナルにアプリの起動が表示され、Agent App から**クエリを入力してください (Enter your query)** というプロンプトが表示されます。
 
 ### Agent との会話を開始する
 
 以下の会話では、Contoso 売上データベースとアップロードされたテントデータシートの両方のデータを使用するため、結果はクエリによって異なります。
 
-1.  **どのブランドのハイキングシューズを販売していますか？** 
+1. **どのブランドのテントを販売していますか？**
 
-    !!! info
-        ハイキングシューズに関する情報を含むファイルを Agent に提供していません。
-
-        最初のラボで、基盤となるデータベースの取引履歴にも製品ブランドや説明が含まれていなかったことにお気づきかもしれません。
-
-2.  **どのブランドのテントを販売していますか？**
-
-    Agent は、テントデータシートに記載されている個別のテントブランドのリストで応答します。
+    Agent は、テントデータシートに記載されている一意のテントブランドのリストを返します。
 
     !!! info
         Agent は提供されたデータシートを参照して、ブランド、説明、製品タイプ、カテゴリなどの詳細にアクセスし、このデータを Contoso 売上データベースに関連付けることができるようになりました。
 
-3.  **これらのブランドに関連付けられている製品タイプとカテゴリは何ですか？**
+
+2. **どのブランドのハイキングシューズを販売していますか？**
+
+    !!! info
+        エージェントには、ハイキングシューズに関する情報を含むファイルは提供していません。
+
+        エージェントがそのベクトルストアから取得できない情報に関する質問をどのように扱うか観察してください。
+
+3. **これらのブランドに関連付けられている製品タイプとカテゴリは何ですか？**
 
     Agent は、テントブランドに関連付けられている製品タイプとカテゴリのリストを提供します。
 
-4.  **2024年のテントの売上高は製品タイプ別にどのくらいでしたか？各製品に関連するブランドを含めてください。**
+4. **2024年のテントの売上高は製品タイプ別にどのくらいでしたか？各製品に関連するブランドを含めてください。**
 
     !!! info
         Agent がこれを間違え、AlpineGear に "FAMILY CAMPING TENTS" (ファミリーキャンプ用テント) があると誤って示唆する可能性があります。これに対処するには、指示やデータシートでさらにコンテキストを提供するか、次のプロンプトのように Agent に直接コンテキストを提供します。
+        Agent がこれを誤り、AlpineGearが "FAMILY CAMPING TENTS" (ファミリーキャンプ用テント)を販売していると間違って示唆する可能性があります。これに対処するには、指示またはデータシートにさらなるコンテキストを提供するか、次のプロンプトのようにエージェントに直接コンテキストを提供できます。例として、次を試してください：「Contoso は AlpineGear の FAMILY CAMPING TENTS を販売していません。もう一度確認してください。」
 
-5.  **2024年の AlpineGear の地域別売上は？**
+5. **2024年の AlpineGear の地域別売上は？**
 
     Agent は Contoso 売上データベースからの売上データで応答します。
 
     !!! info
-        Agent は、Alpine Gear が "BACKPACKING TENTS" のブランドであるという情報にアクセスできるようになったため、これを"CAMPING & HIKING" カテゴリのすべてのテントの売上を検索するリクエストとして解釈します。
+        Agent はこれを、「CAMPING & HIKING」カテゴリ内のすべてのテントの売上を検索する要求として解釈します。これは、Agent が Alpine Gear が backpacking tent のブランドであるという情報にアクセスできるようになったためです。
 
-6.  **Contoso は AlpineGear の FAMILY CAMPING TENTS を販売していません。もう一度調べてください。** (または「Contoso does not sell Family Camping tents from AlpineGear. Try again.」など)
+6. **地域別の売上を円グラフで表示して**
 
-    よくなりました！
+    私たちのエージェントは、まだチャートを作成できません。次のラボで実施できるようになります。
+
 
 ## Agent Appの停止
 
