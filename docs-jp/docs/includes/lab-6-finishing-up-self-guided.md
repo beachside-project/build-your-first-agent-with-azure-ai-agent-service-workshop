@@ -1,46 +1,36 @@
-That's all for the lab portion of this workshop. Read on for key takeaways and additional resources, but first let's tidy up.
-
-## Star the GitHub Repository
-
-If you have a GitHub account, you can "star" this repository to make it easy for you to find again in the future.
-
-* Visit the GitHub repository at: [microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop](https://github.com/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop){:target="_blank"}
-* Log into your GitHub account
-* Click **Star** in the top right
-
-To find this workshop again in the future, click your GitHub profile picture in the top-right and click **Your stars**.
+このワークショップのラボは以上です。主要なポイントと追加リソースについてはこの先をお読みください。まずは後片付けをしましょう。
 
 ## Clean up GitHub CodeSpaces
 
-### Save your changes in GitHub 
+### GitHub に変更を保存する
 
-You can save any changes you have made to files during the workshop to your personal GitHub repository as a fork. This makes it easy to re-run the workshop with your customizations, and the workshop content will always remain available in your GitHub account.
+ワークショップ中にファイルに行った変更は、個人の GitHub リポジトリにフォークとして保存できます。これにより、あなたのカスタマイズを適用してワークショップを簡単に再実行でき、ワークショップのコンテンツはあなたのGitHubアカウントに常に残ります。
 
-* In VS Code, click the "Source Control" tool in the left pane. It's the third one down, or you can use the keyboard shortcut <kbd>Control-Shift-G</kbd>.
-* In the field under "Source Control" enter `Agents Lab` and click **✔️Commit**.
-  * Click **Yes** to the prompt "There are no staged changes to commit."
-* Click **Sync Changes**.
-  * Click **OK** to the prompt "This action will pull and push commits from and to origin/main".
+* VS Code で、左ペインの「ソース管理 (Source Control)」ツールをクリックします。上から 3 番目です。または、キーボードショートカット <kbd>Control - Shift - G</kbd> を使用することもできます。
+* 「ソース管理 (Source Control)」の下のフィールドに `Agents Lab` と入力し、**✔️コミット (Commit)** をクリックします。
+  * 「コミットするステージ済みの変更はありません (There are no staged changes to commit.)」というプロンプトに **Yes** をクリックします。
+* **変更の同期 (Sync Changes)** をクリックします。
+  * 「このアクションは origin/main からコミットをプルおよびプッシュします (This action will pull and push commits from and to origin/main)」というプロンプトに **OK** をクリックします。
 
-You now have your own copy of the workshop with your customizations in your GitHub account.
+これで、カスタマイズされたワークショップの独自のコピーが GitHub アカウントに作成されました。
 
-### Delete your GitHub codespace
+### GitHub Codespace の削除
 
-Your GitHub CodeSpace will shut down by itself, but it will consume a small amount of your compute and storage allotment until it is deleted. (You can see your usage in your [GitHub Billing summary](https://github.com/settings/billing/summary).) You can safely delete the codespace now, as follows:
+GitHub CodeSpace は自動的にシャットダウンしますが、削除されるまでコンピューティングとストレージの割り当て量を少量消費します。（使用状況は [GitHub 請求概要 (GitHub Billing summary)](https://github.com/settings/billing/summary) で確認できます。）次のようにして、Codespace を安全に削除できます：
 
-* Visit [github.com/codespaces](https://github.com/codespaces){:target="_blank"}
-* At the bottom of the page, click the "..." menu to the right of your active codespace
-* Click **Delete**
-  * At the "Are you sure?" prompt, click **Delete**.
+* [github.com/codespaces](https://github.com/codespaces){:target="_blank"} にアクセスします
+* ページの下部で、アクティブな Codespace の右側にある「...」メニューをクリックします
+* **削除 (Delete)** をクリックします
+  * 「よろしいですか？ (Are you sure?)」というプロンプトで、**削除 (Delete)** をクリックします。
 
-## Delete your Azure resources
+## Azure のリソース削除
 
-Most of the resources you created in this lab are pay-as-you-go resources, meaning you won't be charged any more for using them. However, some storage services used by AI Foundry may incur small ongoing charges. To delete all resources, follow these steps:
+このラボで作成したリソースのほとんどは従量課金制リソースであり、それ以上の使用に対して料金は発生しません。ただし、AI Foundryが使用する一部のストレージサービスでは、少額の継続的な料金が発生する場合があります。すべてのリソースを削除するには、以下の手順にしたがってください。
 
-* Vist the [Azure Portal](https://portal.azure.com){:target="_blank"}
-* Click **Resource groups**
-* Click on your resource group `rg-contoso-agent-workshop`
-* Click **Delete Resource group**
-* In the field at the bottom "Enter resource group name to confirm deletion" enter `rg-contoso-agent-workshop`
-* Click **Delete**
-  * At the Delete Confirmation prompt, click "Delete"
+* [Azure ポータル](https://portal.azure.com){:target="_blank"} にアクセスします。
+* **リソース グループ**をクリックします。
+* リソース グループ `rg-contoso-agent-workshop` をクリックします。
+* **リソース グループの削除 (Delete Resource group)** をクリックします。
+* 下部の「削除を確認するためにリソース グループ名を入力してください (Enter resource group name to confirm deletion)」フィールドに `rg-contoso-agent-workshop` と入力します。
+* **削除 (Delete)** をクリックします。
+  * 削除確認のプロンプトで、「削除 (Delete)」をクリックします。

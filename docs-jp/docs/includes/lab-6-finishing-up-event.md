@@ -1,3 +1,12 @@
+---
+
+!!! warning
+    **こちらはアメリカのシアトルで開催の Microsoft Build 2025 に参加している方向けのページです。**
+
+    🚧**通常のワークショップに参加している方は "Self-Guided Learners" のコンテンツをご利用ください。**🚧
+
+---
+
 That's all for the lab portion of this workshop. Read on for key takeaways and additional resources, but first let's make it easy for you to retrieve and re-use this workshop material back home.
 
 ## Star the GitHub Repository
