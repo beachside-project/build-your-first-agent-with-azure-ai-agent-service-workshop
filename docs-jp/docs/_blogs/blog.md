@@ -1,42 +1,41 @@
-# Build Your First Agent with Azure AI Agent Service: Self-Guided Workshop
+# Azure AI Agent Serviceを使ったはじめてのAgent構築：セルフガイドワークショップ
 
 ![Contoso Sales Analysis Agent](../media/persona.png)
 
-Agentic AI is changing how we build intelligent apps—enabling software to reason, plan, and act for us. Learning to build AI agents is quickly becoming a must-have skill for anyone working with AI.
+エージェントAIは、ソフトウェアが私たちのために推論、計画、実行することを可能にすることで、インテリジェントなアプリの構築方法を変えています。AIエージェントの構築を学ぶことは、AIを扱うすべての人にとって急速に必須スキルになりつつあります。
 
 Try our self-guided workshop to get hands-on with Azure AI Agent Service. You'll learn to build, deploy, and interact with agents using Azure's powerful tools.
 
-## What is Azure AI Agent Service?
+## Azure AI Agent Service とは
 
-Azure AI Agent Service lets you create, orchestrate, and manage AI-powered agents that can handle complex tasks, integrate with tools, and deploy securely.
+Azure AI Agent Serviceを使用すると、複雑なタスクを処理し、ツールと統合し、安全にデプロイできるAIを活用したエージェントを作成、オーケストレーション、管理できます。
 
-## What Will You Learn?
+## ここで学べる事
 
-- The basics of agentic AI and how agents differ from traditional models
-- How to set up your Azure environment
-- How to build your first agent: define goals, tools, and memory
-- How to test and interact with your agent
-- Advanced features like tool integration and memory management
+- エージェントAIの基本と、エージェントが従来のモデルとどう異なるか
+- Azure の環境の設定方法
+- 最初の Agent の構築方法：目標、ツール、メモリの定義
+- Agent のテストと操作方法
+- ツール統合やメモリ管理などの高度な機能
 
-## Who Is This For?
+## これは誰向けのコンテンツ?
 
-Anyone interested in building intelligent, goal-oriented agents—developers, data scientists, and AI enthusiasts. No prior experience with Azure AI Agent Service required.
+インテリジェントで目標志向のエージェント構築に興味をお持ちの方々 — 開発者、データサイエンティスト、AI愛好家など。Azure AI Agent Service の事前経験は必要ありません。
 
 ## How Does the Workshop Work?
 
-> **Tip:** Select the `self-guided` tab in Getting Started for the right instructions.
+> **ヒント：** Getting Startedで `self-guided` タブを選択すると、適切な手順が表示されます。
 
-- Step-by-step guides at your own pace
-- Code samples and templates
-- Real-world scenarios
+- ご自身のペースで進められるステップバイステップガイド
+- コードサンプルとテンプレート
+- 実世界のシナリオ
 
 ## Get Started
 
-See what agentic AI can do for you: [https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/](https://microsoft.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/)
+Agentic AIの可能性をご覧ください： <https://beachside-project.github.io/build-your-first-agent-with-azure-ai-agent-service-workshop/>
 
-Build practical skills in one of AI’s most exciting areas. Try the workshop and start building agents that make a difference!
 
-Questions or feedback? Visit the [issues page](https://github.com/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop/issues).
+AI分野のもっとも刺激的な領域のひとつで、実践的なスキルを習得しましょう。ぜひワークショップに挑戦し、社会に貢献するAgentの構築を始めてください！
 
 ---
 
