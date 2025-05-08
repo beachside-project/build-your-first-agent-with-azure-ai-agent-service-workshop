@@ -52,7 +52,7 @@ if [ -f output.json ]; then
 
     # Write to the .env file
     {
-      echo "PROJECT_CONNECTION_STRING=$PROJECT_CONNECTION_STRING"
+      echo "PROJECT_CONNECTION_STRING=\"$PROJECT_CONNECTION_STRING\""
       echo "BING_CONNECTION_NAME=\"groundingwithbingsearch\""
       echo "MODEL_DEPLOYMENT_NAME=\"$MODEL_NAME\""
     } > "$ENV_FILE_PATH"
