@@ -9,7 +9,7 @@
 
 本ラボでは、Contoso の製品とカテゴリの競合売上分析を行うために、Bing Grounding を有効にします。
 
-## Create a Grounding with Bing Search resource
+## Grounding with Bing Search リソースを作成する
 
 Azure ポータルで **Grounding with Bing Search Service** リソースを作成して、それを Azure AI Foundry ポータルに接続する必要があります。
 
@@ -70,7 +70,7 @@ Azure AI Foundry ポータルで Bing Search の Connection を作成するに�
     ```
 
     !!! warning
-        The lines to be uncommented are not adjacent. When removing the # character, ensure you also delete the space that follows it.
+        「#」文字を削除する際には、その直後にあるスペースも必ず削除してください。
 
 1. Review the code in the `main.py` file.
 
