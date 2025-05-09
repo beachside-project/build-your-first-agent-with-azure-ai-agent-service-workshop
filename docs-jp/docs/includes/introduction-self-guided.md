@@ -35,7 +35,7 @@
 
     **Open in GitHub Codespaces** をクリックして、GitHub Codespaces でプロジェクトを開きます。
 
-    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop){:target="_blank"}
+    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/beachside-project/build-your-first-agent-with-azure-ai-agent-service-workshop){:target="_blank"}
 
     !!! Warning "Codespace のビルドには数分かかります。ビルド中に指示を読み進めることができます。"
 
