@@ -1,0 +1,889 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../lab-1-function_calling/">
+      
+      
+        <link rel="next" href="../lab-3-code_interpreter/">
+      
+      
+      <link rel="icon" href="../media/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Lab 2🧪ドキュメントのグラウンディング - Build your code-first agent with Azure AI Foundry powered by COGBOT Community (JP)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Build your code-first agent with Azure AI Foundry powered by COGBOT Community (JP)" class="md-header__button md-logo" aria-label="Build your code-first agent with Azure AI Foundry powered by COGBOT Community (JP)" data-md-component="logo">
+      
+  <img src="../media/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Build your code-first agent with Azure AI Foundry powered by COGBOT Community (JP)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 2🧪ドキュメントのグラウンディング
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 2c-1.82 0-3.53.5-5 1.35C8 5.08 10 8.3 10 12s-2 6.92-5 8.65C6.47 21.5 8.18 22 10 22a10 10 0 0 0 10-10A10 10 0 0 0 10 2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Build your code-first agent with Azure AI Foundry powered by COGBOT Community (JP)" class="md-nav__button md-logo" aria-label="Build your code-first agent with Azure AI Foundry powered by COGBOT Community (JP)" data-md-component="logo">
+      
+  <img src="../media/favicon.png" alt="logo">
+
+    </a>
+    Build your code-first agent with Azure AI Foundry powered by COGBOT Community (JP)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    はじめに
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ソリューションアーキテクチャー
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    セキュリティに関する懸念事項
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-1-function_calling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1🧪Function Calling のパワー
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Lab 2🧪ドキュメントのグラウンディング
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2🧪ドキュメントのグラウンディング
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      はじめに
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ラボ演習
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      関数の確認
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent App の実行
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-app_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Appの停止
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-3-code_interpreter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3🧪コードインタープリター入門
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-4-bing_search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4🧪Grounding with Bing Search
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-5-multilingual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 5🧪多言語での視覚化
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../finishing-up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 6🧪最後に
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    まとめ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    リソース情報
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      はじめに
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ラボ演習
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      関数の確認
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent App の実行
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-app_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Appの停止
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Lab 2🧪ドキュメントのグラウンディング</h1>
+
+<h2 id="_1">はじめに<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>会話にドキュメント (ファイル) のコンテキストを含めることは非常に効果的であり、特に運用中のデータベースでは利用できない可能性のある製品詳細を取得する場合に有効です。Azure AI Agent Service には <a href="https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/tools/file-search" target="_blank">ファイル検索ツール</a> が含まれており、これにより Agent は、ユーザーが提供したドキュメントや製品データなどのアップロードされたファイルから直接情報を取得でき、<a href="https://learn.microsoft.com/azure/ai-studio/concepts/retrieval-augmented-generation" target="_blank">RAG スタイル</a> の検索エクスペリエンスを実現します。</p>
+<p>このラボでは、ドキュメント検索を有効にし、Agent 用にテントのデータシートをベクトルストアにアップロードする方法を学びます。有効化されると、このツールにより Agent はファイルを検索し、関連性の高い応答を提供できるようになります。ドキュメントは、すべてのユーザー向けに Agent にアップロードしたり、特定のユーザースレッドにリンクしたり、コードインタープリターにリンクしたりできます。</p>
+<p>アプリが起動すると、ベクトルストアが作成され、Contoso のテントデータシート PDF ファイルがベクトルストアにアップロードされ、Agent で利用可能になります。</p>
+<p>通常、アプリが起動するたびに新しいベクトルストアを作成してドキュメントをアップロードすることはありません。代わりに、ベクトルストアを一度作成し、潜在的に数千のドキュメントをアップロードし、そのストアを Agent に接続します。</p>
+<p><a href="https://en.wikipedia.org/wiki/Vector_database" target="_blank">ベクトルストア</a> は、ベクトル（テキストデータの数値表現）の保存と検索に最適化されたデータベースです。ファイル検索ツールは、アップロードされたドキュメント内の関連情報を検索するために、ベクトルストアを <a href="https://en.wikipedia.org/wiki/Semantic_search" target="_blank">セマンティック検索</a> に使用します。</p>
+<h2 id="_2">ラボ演習<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>VS Code から <strong>shared/datasheet/contoso-tents-datasheet.pdf</strong> ファイルを開きます。この PDF ファイルには、Contoso が販売するテントの詳細な製品説明が含まれています。</p>
+</li>
+<li>
+<p>Agent の応答をグラウンディングするために使用されるため、ファイルの内容を<strong>確認</strong>して、含まれる情報を理解します。</p>
+</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C#</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>
+<p><code>main.py</code> ファイルを開きます。</p>
+</li>
+<li>
+<p><strong>"# "</strong> 文字を削除して、次の行の<strong>コメントを解除</strong>します。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># INSTRUCTIONS_FILE = &quot;instructions/file_search.txt&quot;</span>
+
+<span class="c1"># vector_store = await utilities.create_vector_store(</span>
+<span class="c1">#     project_client,</span>
+<span class="c1">#     files=[TENTS_DATA_SHEET_FILE],</span>
+<span class="c1">#     vector_store_name=&quot;Contoso Product Information Vector Store&quot;,</span>
+<span class="c1"># )</span>
+<span class="c1"># file_search_tool = FileSearchTool(vector_store_ids=[vector_store.id])</span>
+<span class="c1"># toolset.add(file_search_tool)</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>コメント解除する行は隣接していません。# 文字を削除する際は、その後のスペースも削除するようにしてください。</p>
+</div>
+</li>
+<li>
+<p><code>main.py</code> ファイルのコードを確認します。</p>
+<p>コメント解除後、コードは次のようになります：</p>
+<div class="highlight"><pre><span></span><code><span class="n">INSTRUCTIONS_FILE</span> <span class="o">=</span> <span class="s2">&quot;instructions/function_calling.txt&quot;</span>
+<span class="n">INSTRUCTIONS_FILE</span> <span class="o">=</span> <span class="s2">&quot;instructions/file_search.txt&quot;</span>
+<span class="c1"># INSTRUCTIONS_FILE = &quot;instructions/code_interpreter.txt&quot;</span>
+<span class="c1"># INSTRUCTIONS_FILE = &quot;instructions/code_interpreter_multilingual.txt&quot;</span>
+<span class="c1"># INSTRUCTIONS_FILE = &quot;instructions/bing_grounding.txt&quot;</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">add_agent_tools</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add tools for the agent.&quot;&quot;&quot;</span>
+    <span class="n">font_file_info</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># 関数ツールを追加</span>
+    <span class="n">toolset</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">functions</span><span class="p">)</span>
+
+    <span class="c1"># テントのデータシートを新しいベクトルデータストアに追加</span>
+    <span class="n">vector_store</span> <span class="o">=</span> <span class="k">await</span> <span class="n">utilities</span><span class="o">.</span><span class="n">create_vector_store</span><span class="p">(</span>
+        <span class="n">project_client</span><span class="p">,</span>
+        <span class="n">files</span><span class="o">=</span><span class="p">[</span><span class="n">TENTS_DATA_SHEET_FILE</span><span class="p">],</span>
+        <span class="n">vector_store_name</span><span class="o">=</span><span class="s2">&quot;Contoso Product Information Vector Store&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">file_search_tool</span> <span class="o">=</span> <span class="n">FileSearchTool</span><span class="p">(</span><span class="n">vector_store_ids</span><span class="o">=</span><span class="p">[</span><span class="n">vector_store</span><span class="o">.</span><span class="n">id</span><span class="p">])</span>
+    <span class="n">toolset</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">file_search_tool</span><span class="p">)</span>
+
+  <span class="c1"># コードインタープリターツールを追加</span>
+  <span class="c1"># code_interpreter = CodeInterpreterTool()</span>
+  <span class="c1"># toolset.add(code_interpreter)</span>
+
+  <span class="c1"># Bing grounding ツールを追加</span>
+  <span class="c1"># bing_connection = await project_client.connections.get(connection_name=BING_CONNECTION_NAME)</span>
+  <span class="c1"># bing_grounding = BingGroundingTool(connection_id=bing_connection.id)</span>
+  <span class="c1"># toolset.add(bing_grounding)</span>
+
+  <span class="c1"># コードインタープリターに多言語サポートを追加</span>
+  <span class="c1"># font_file_info = await utilities.upload_file(project_client, utilities.shared_files_path / FONTS_ZIP)</span>
+  <span class="c1"># code_interpreter.add_file(file_id=font_file_info.id)</span>
+
+  <span class="k">return</span> <span class="n">font_file_info</span>
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li><code>Program.cs</code> ファイルを開きます。</li>
+<li>
+<p><code>Lab</code> の作成を <code>Lab2</code> クラスを使用するように<strong>更新</strong>します。</p>
+<div class="highlight"><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="nn">Lab</span><span class="w"> </span><span class="n">lab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Lab2</span><span class="p">(</span><span class="n">projectClient</span><span class="p">,</span><span class="w"> </span><span class="n">apiDeploymentName</span><span class="p">);</span>
+</code></pre></div>
+</li>
+<li>
+<p><code>Lab2.cs</code> クラスを確認し、<code>InitialiseLabAsync</code> が PDF をベクトルストアに追加しファイル検索ツールを Agent に追加するためにどのように使用され、<code>InitialiseToolResources</code> がファイル検索ツールを Agent に追加するためにどのように使用されるかを確認します。これらのメソッドは、プロセスを観察するためにブレークポイントを追加するのに適した場所です。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<h2 id="_3">関数の確認<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>utilities.py</strong> ファイル内の <strong>create_vector_store</strong> 関数を確認します。<code>create_vector_store</code> 関数は、テントのデータシートをアップロードし、ベクトルストアに保存します。</p>
+<p>VS Code デバッガーの使用に慣れている場合は、<strong>create_vector_store</strong> 関数に<a href="https://code.visualstudio.com/Docs/editor/debugging" target="_blank">ブレークポイント</a>を設定して、ベクトルストアがどのように作成されるかを観察します。</p>
+</li>
+<li>
+<p><strong>shared/instructions/file_search.txt</strong> ファイルを開きます。"2. Tools &amp; Data Access" セクションで更新されている内容を、前のステップで使用したものと比較して確認してみましょう。</p>
+</li>
+</ol>
+<h2 id="agent-app">Agent App の実行<a class="headerlink" href="#agent-app" title="Permanent link">&para;</a></h2>
+<ol>
+<li><kbd>F5</kbd> を押してアプリを実行します。</li>
+<li>ターミナルにアプリの起動が表示され、Agent App から<strong>クエリを入力してください (Enter your query)</strong> というプロンプトが表示されます。</li>
+</ol>
+<h3 id="agent">Agent との会話を開始する<a class="headerlink" href="#agent" title="Permanent link">&para;</a></h3>
+<p>以下の会話では、Contoso 売上データベースとアップロードされたテントデータシートの両方のデータを使用するため、結果はクエリによって異なります。</p>
+<ol>
+<li>
+<p><strong>どのブランドのテントを販売していますか？</strong></p>
+<p>Agent は、テントデータシートに記載されている一意のテントブランドのリストを返します。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Agent は提供されたデータシートを参照して、ブランド、説明、製品タイプ、カテゴリなどの詳細にアクセスし、このデータを Contoso 売上データベースに関連付けることができるようになりました。</p>
+</div>
+</li>
+<li>
+<p><strong>どのブランドのハイキングシューズを販売していますか？</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>エージェントには、ハイキングシューズに関する情報を含むファイルは提供していません。</p>
+<p>エージェントがそのベクトルストアから取得できない情報に関する質問をどのように扱うか観察してください。</p>
+</div>
+</li>
+<li>
+<p><strong>これらのブランドに関連付けられている製品タイプとカテゴリは何ですか？</strong></p>
+<p>Agent は、テントブランドに関連付けられている製品タイプとカテゴリのリストを提供します。</p>
+</li>
+<li>
+<p><strong>2024年のテントの売上高は製品タイプ別にどのくらいでしたか？各製品に関連するブランドを含めてください。</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Agent がこれを間違え、AlpineGear に "FAMILY CAMPING TENTS" (ファミリーキャンプ用テント) があると誤って示唆する可能性があります。これに対処するには、指示やデータシートでさらにコンテキストを提供するか、次のプロンプトのように Agent に直接コンテキストを提供します。
+Agent がこれを誤り、AlpineGearが "FAMILY CAMPING TENTS" (ファミリーキャンプ用テント)を販売していると間違って示唆する可能性があります。これに対処するには、指示またはデータシートにさらなるコンテキストを提供するか、次のプロンプトのようにエージェントに直接コンテキストを提供できます。例として、次を試してください：「Contoso は AlpineGear の FAMILY CAMPING TENTS を販売していません。もう一度確認してください。」</p>
+</div>
+</li>
+<li>
+<p><strong>2024年の AlpineGear の地域別売上は？</strong></p>
+<p>Agent は Contoso 売上データベースからの売上データで応答します。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Agent はこれを、「CAMPING &amp; HIKING」カテゴリ内のすべてのテントの売上を検索する要求として解釈します。これは、Agent が Alpine Gear が backpacking tent のブランドであるという情報にアクセスできるようになったためです。</p>
+</div>
+</li>
+<li>
+<p><strong>地域別の売上を円グラフで表示して</strong></p>
+<p>私たちのエージェントは、まだチャートを作成できません。次のラボで実施できるようになります。</p>
+</li>
+</ol>
+<h2 id="agent-app_1">Agent Appの停止<a class="headerlink" href="#agent-app_1" title="Permanent link">&para;</a></h2>
+<p>完了したら、<strong>exit</strong> と入力して Agent のリソースをクリーンアップし、アプリを停止します。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../lab-1-function_calling/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lab 1🧪Function Calling のパワー">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Lab 1🧪Function Calling のパワー
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../lab-3-code_interpreter/" class="md-footer__link md-footer__link--next" aria-label="Next: Lab 3🧪コードインタープリター入門">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Lab 3🧪コードインタープリター入門
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.footer", "content.code.copy", "navigation.tabs.sticky", "content.tabs.link"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../js/custom-nav.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
